@@ -14,7 +14,7 @@ import java.util.Collection;
 
 /**
  *
- * @author skarkee
+ * @author pkar
  */
 public class BizManager {
     private EntityManager em;
