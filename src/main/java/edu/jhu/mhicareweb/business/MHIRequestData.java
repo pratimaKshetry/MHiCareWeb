@@ -4,16 +4,19 @@ import java.util.ArrayList;
 
 
 public class MHIRequestData {
-    String piName;
-    String piJhed;
+    String piFirstName;
+    String piLastName;
+    String piJHED;
     String piEmail;
     String phone;    
     String submissionDate;
     String submitterCheck;
-    String submitterName;
-    String submitterJhedID;
+    String submitterFirstName;
+    String submitterLastName;
+    String submitterJHED;
     String submitterEmail;
-    ArrayList<String> studyTeamMemberName;
+    ArrayList<String> studyTeamMemberFirstName;
+    ArrayList<String> studyTeamMemberLastName;
     ArrayList<String> studyTeamMemberJHED;
     ArrayList<String> studyTeamMemberEmail; 
     String studyTitle;
@@ -122,20 +125,28 @@ public class MHIRequestData {
     ArrayList<String> patRecruitmentContactPerson;
     String patRecruitmentContactStudyTeamJHED;   
 
-    public String getPiName() {
-        return piName;
+    public String getPiFirstName() {
+        return piFirstName;
     }
 
-    public void setPiName(String piName) {
-        this.piName = piName;
+    public void setPiFirstName(String piFirstName) {
+        this.piFirstName = piFirstName;
+    }
+    
+    public String getPiLastName() {
+        return piLastName;
     }
 
-    public String getPiJhed() {
-        return piJhed;
+    public void setPiLastName(String piLastName) {
+        this.piLastName = piLastName;
     }
 
-    public void setPiJhed(String piJhed) {
-        this.piJhed = piJhed;
+    public String getPiJHED() {
+        return piJHED;
+    }
+
+    public void setPiJHED(String piJHED) {
+        this.piJHED = piJHED;
     }
 
     public String getPiEmail() {
@@ -170,20 +181,28 @@ public class MHIRequestData {
         this.submitterCheck = submitterCheck;
     }
 
-    public String getSubmitterName() {
-        return submitterName;
+    public String getSubmitterFirstName() {
+        return submitterFirstName;
     }
 
-    public void setSubmitterName(String submitterName) {
-        this.submitterName = submitterName;
+    public void setSubmitterFirstName(String submitterFirstName) {
+        this.submitterFirstName = submitterFirstName;
     }
 
-    public String getSubmitterJhedID() {
-        return submitterJhedID;
+    public String getSubmitterLastName() {
+        return submitterLastName;
     }
 
-    public void setSubmitterJhedID(String submitterJhedID) {
-        this.submitterJhedID = submitterJhedID;
+    public void setSubmitterLastName(String submitterLastName) {
+        this.submitterLastName = submitterLastName;
+    }
+    
+    public String getSubmitterJHED() {
+        return submitterJHED;
+    }
+
+    public void setSubmitterJHED(String submitterJHED) {
+        this.submitterJHED = submitterJHED;
     }
 
     public String getSubmitterEmail() {
@@ -194,12 +213,20 @@ public class MHIRequestData {
         this.submitterEmail = submitterEmail;
     }
 
-    public ArrayList<String> getStudyTeamMemberName() {
-        return studyTeamMemberName;
+    public ArrayList<String> getStudyTeamMemberFirstName() {
+        return studyTeamMemberFirstName;
     }
 
-    public void setStudyTeamMemberName(ArrayList<String> studyTeamMemberName) {
-        this.studyTeamMemberName = studyTeamMemberName;
+    public void setStudyTeamMemberFirstName(ArrayList<String> studyTeamMemberFirstName) {
+        this.studyTeamMemberFirstName = studyTeamMemberFirstName;
+    }
+    
+    public ArrayList<String> getStudyTeamMemberLastName() {
+        return studyTeamMemberLastName;
+    }
+
+    public void setStudyTeamMemberLastName(ArrayList<String> studyTeamMemberLastName) {
+        this.studyTeamMemberLastName = studyTeamMemberLastName;
     }
 
     public ArrayList<String> getStudyTeamMemberJHED() {
@@ -1060,9 +1087,11 @@ public class MHIRequestData {
 
     @Override
     public String toString() {
-        return "MHIRequestData{" + "piName=" + piName + ", piJhed=" + piJhed + ", piEmail=" + piEmail + ", phone=" + phone + ", submissionDate=" + submissionDate + ", submitterCheck=" + submitterCheck + ", submitterName=" + submitterName + ", submitterJhedID=" + submitterJhedID + ", submitterEmail=" + submitterEmail + ", studyTeamMemberName=" + studyTeamMemberName + ", studyTeamMemberJHED=" + studyTeamMemberJHED + ", studyTeamMemberEmail=" + studyTeamMemberEmail + ", studyTitle=" + studyTitle + ", projectDescription=" + projectDescription + ", toolset=" + toolset + ", patStudyEstimateAge=" + patStudyEstimateAge + ", patStudyEstimateSex=" + patStudyEstimateSex + ", patStudyEstimateGender=" + patStudyEstimateGender + ", patStudyEstimateGenderOtherValue=" + patStudyEstimateGenderOtherValue + ", patStudyEstimateRace=" + patStudyEstimateRace + ", patStudyEstimateRaceOtherValue=" + patStudyEstimateRaceOtherValue + ", patStudyEstimateEthnicity=" + patStudyEstimateEthnicity + ", patStudyEstimateEthnicityOtherValue=" + patStudyEstimateEthnicityOtherValue + ", patStudyEstimateInclusion=" + patStudyEstimateInclusion + ", patStudyEstimateExclusion=" + patStudyEstimateExclusion + ", patStudyEstimateLocation=" + patStudyEstimateLocation + ", patStudyEstimateLocationOtherValue=" + patStudyEstimateLocationOtherValue + ", patStudyEstimateLevelOfCare=" + patStudyEstimateLevelOfCare + ", patStudyEstimateLevelOfCareOtherValue=" + patStudyEstimateLevelOfCareOtherValue + ", patStudyEstimateLocationinfo=" + patStudyEstimateLocationinfo + ", patRegistryDemoInfo=" + patRegistryDemoInfo + ", patRegistryAge=" + patRegistryAge + ", patRegistrySex=" + patRegistrySex + ", patRegistryGender=" + patRegistryGender + ", patRegistryGenderOtherValue=" + patRegistryGenderOtherValue + ", patRegistryRace=" + patRegistryRace + ", patRegistryRaceOtherValue=" + patRegistryRaceOtherValue + ", patRegistryEthnicity=" + patRegistryEthnicity + ", patRegistryEthnicityOtherValue=" + patRegistryEthnicityOtherValue + ", patRegistryInclusion=" + patRegistryInclusion + ", patRegistryExclusion=" + patRegistryExclusion + ", patRegistryLocation=" + patRegistryLocation + ", patRegistryLocationOtherValue=" + patRegistryLocationOtherValue + ", patRegistryLevelOfCare=" + patRegistryLevelOfCare + ", patRegistryLevelOfCareOtherValue=" + patRegistryLevelOfCareOtherValue + ", patRegistryLocationInfo=" + patRegistryLocationInfo + ", patRegistryMetricDiagnoses=" + patRegistryMetricDiagnoses + ", patRegistryMetricMeds=" + patRegistryMetricMeds + ", patRegistryMetricLabs=" + patRegistryMetricLabs + ", patRegistryMetricMeasures=" + patRegistryMetricMeasures + ", patRegistryOtherMetric=" + patRegistryOtherMetric + ", eDataCaptureDemoInfo=" + eDataCaptureDemoInfo + ", eDataCaptureSex=" + eDataCaptureSex + ", eDataCaptureGender=" + eDataCaptureGender + ", eDataCaptureGenderOtherValue=" + eDataCaptureGenderOtherValue + ", eDataCaptureRace=" + eDataCaptureRace + ", eDataCaptureRaceOtherValue=" + eDataCaptureRaceOtherValue + ", eDataCaptureEthnicity=" + eDataCaptureEthnicity + ", eDataCaptureEthnicityOtherValue=" + eDataCaptureEthnicityOtherValue + ", eDataCaptureInclusion=" + eDataCaptureInclusion + ", eDataCaptureExclusion=" + eDataCaptureExclusion + ", eDataCaptureLocation=" + eDataCaptureLocation + ", eDataCaptureLocationOtherValue=" + eDataCaptureLocationOtherValue + ", eDataCaptureLevelOfCare=" + eDataCaptureLevelOfCare + ", eDataCaptureLevelOfCareOtherValue=" + eDataCaptureLevelOfCareOtherValue + ", eDataCaptureLocationInfo=" + eDataCaptureLocationInfo + ", eDataCaptureStartDate=" + eDataCaptureStartDate + ", eDataCaptureFrequency=" + eDataCaptureFrequency + ", eDataCaptureInfoToCapture=" + eDataCaptureInfoToCapture + ", eDataCaptureEntrantOfData=" + eDataCaptureEntrantOfData + ", eDataCapturePlatform=" + eDataCapturePlatform + ", eDataCaptureVisualize=" + eDataCaptureVisualize + ", eDataCaptureHowToVisualize=" + eDataCaptureHowToVisualize + ", dataExtractionDemoInfo=" + dataExtractionDemoInfo + ", dataExtractionAge=" + dataExtractionAge + ", dataExtractionSex=" + dataExtractionSex + ", dataExtractionGender=" + dataExtractionGender + ", dataExtractionGenderOtherValue=" + dataExtractionGenderOtherValue + ", dataExtractionRace=" + dataExtractionRace + ", dataExtractionRaceOtherValue=" + dataExtractionRaceOtherValue + ", dataExtractionEthnicity=" + dataExtractionEthnicity + ", dataExtractionEthnicityOtherValue=" + dataExtractionEthnicityOtherValue + ", dataExtractionInclusion=" + dataExtractionInclusion + ", dataExtractionExclusion=" + dataExtractionExclusion + ", dataExtractionLocation=" + dataExtractionLocation + ", dataExtractionLocationOtherValue=" + dataExtractionLocationOtherValue + ", dataExtractionLevelOfCare=" + dataExtractionLevelOfCare + ", dataExtractionLevelOfCareOtherValue=" + dataExtractionLevelOfCareOtherValue + ", dataExtractionLocationInfo=" + dataExtractionLocationInfo + ", dataExtractionStartDate=" + dataExtractionStartDate + ", dataExtractionEndDate=" + dataExtractionEndDate + ", dataExtractionFrequency=" + dataExtractionFrequency + ", dataExtractionWhatDataToExtract=" + dataExtractionWhatDataToExtract + ", dataExtractionDeliveryLocation=" + dataExtractionDeliveryLocation + ", dataExtractionDataFormat=" + dataExtractionDataFormat + ", dataExtractionExternalCollaboration=" + dataExtractionExternalCollaboration + ", patRecruitmentDemoInfo=" + patRecruitmentDemoInfo + ", patRecruitmentAge=" + patRecruitmentAge + ", patRecruitmentSex=" + patRecruitmentSex + ", patRecruitmentGender=" + patRecruitmentGender + ", patRecruitmentGenderOtherValue=" + patRecruitmentGenderOtherValue + ", patRecruitmentRace=" + patRecruitmentRace + ", patRecruitmentRaceOtherValue=" + patRecruitmentRaceOtherValue + ", patRecruitmentEthnicity=" + patRecruitmentEthnicity + ", patRecruitmentEthnicityOtherValue=" + patRecruitmentEthnicityOtherValue + ", patRecruitmentInclusion=" + patRecruitmentInclusion + ", patRecruitmentExclusion=" + patRecruitmentExclusion + ", patRecruitmentLocation=" + patRecruitmentLocation + ", patRecruitmentLocationOtherValue=" + patRecruitmentLocationOtherValue + ", patRecruitmentLevelOfCare=" + patRecruitmentLevelOfCare + ", patRecruitmentLevelOfCareOtherValue=" + patRecruitmentLevelOfCareOtherValue + ", patRecruitmentLocationInfo=" + patRecruitmentLocationInfo + ", patRecruitmentStartDate=" + patRecruitmentStartDate + ", patRecruitmentLength=" + patRecruitmentLength + ", patRecruitmentContactMethod=" + patRecruitmentContactMethod + ", patRecruitmentContactPerson=" + patRecruitmentContactPerson + ", patRecruitmentContactStudyTeamJHED=" + patRecruitmentContactStudyTeamJHED + '}';
+        return "MHIRequestData{" + "piFirstName=" + piFirstName + ", piLastName=" + piLastName + ", piJHED=" + piJHED + ", piEmail=" + piEmail + ", phone=" + phone + ", submissionDate=" + submissionDate + ", submitterCheck=" + submitterCheck + ", submitterFirstName=" + submitterFirstName + ", submitterLastName=" + submitterLastName + " submitterJHED=" + submitterJHED + ", submitterEmail=" + submitterEmail + ", studyTeamMemberFirstName=" + studyTeamMemberFirstName + ", studyTeamMemberLastName=" + studyTeamMemberLastName + ", studyTeamMemberJHED=" + studyTeamMemberJHED + ", studyTeamMemberEmail=" + studyTeamMemberEmail + ", studyTitle=" + studyTitle + ", projectDescription=" + projectDescription + ", toolset=" + toolset + ", patStudyEstimateAge=" + patStudyEstimateAge + ", patStudyEstimateSex=" + patStudyEstimateSex + ", patStudyEstimateGender=" + patStudyEstimateGender + ", patStudyEstimateGenderOtherValue=" + patStudyEstimateGenderOtherValue + ", patStudyEstimateRace=" + patStudyEstimateRace + ", patStudyEstimateRaceOtherValue=" + patStudyEstimateRaceOtherValue + ", patStudyEstimateEthnicity=" + patStudyEstimateEthnicity + ", patStudyEstimateEthnicityOtherValue=" + patStudyEstimateEthnicityOtherValue + ", patStudyEstimateInclusion=" + patStudyEstimateInclusion + ", patStudyEstimateExclusion=" + patStudyEstimateExclusion + ", patStudyEstimateLocation=" + patStudyEstimateLocation + ", patStudyEstimateLocationOtherValue=" + patStudyEstimateLocationOtherValue + ", patStudyEstimateLevelOfCare=" + patStudyEstimateLevelOfCare + ", patStudyEstimateLevelOfCareOtherValue=" + patStudyEstimateLevelOfCareOtherValue + ", patStudyEstimateLocationinfo=" + patStudyEstimateLocationinfo + ", patRegistryDemoInfo=" + patRegistryDemoInfo + ", patRegistryAge=" + patRegistryAge + ", patRegistrySex=" + patRegistrySex + ", patRegistryGender=" + patRegistryGender + ", patRegistryGenderOtherValue=" + patRegistryGenderOtherValue + ", patRegistryRace=" + patRegistryRace + ", patRegistryRaceOtherValue=" + patRegistryRaceOtherValue + ", patRegistryEthnicity=" + patRegistryEthnicity + ", patRegistryEthnicityOtherValue=" + patRegistryEthnicityOtherValue + ", patRegistryInclusion=" + patRegistryInclusion + ", patRegistryExclusion=" + patRegistryExclusion + ", patRegistryLocation=" + patRegistryLocation + ", patRegistryLocationOtherValue=" + patRegistryLocationOtherValue + ", patRegistryLevelOfCare=" + patRegistryLevelOfCare + ", patRegistryLevelOfCareOtherValue=" + patRegistryLevelOfCareOtherValue + ", patRegistryLocationInfo=" + patRegistryLocationInfo + ", patRegistryMetricDiagnoses=" + patRegistryMetricDiagnoses + ", patRegistryMetricMeds=" + patRegistryMetricMeds + ", patRegistryMetricLabs=" + patRegistryMetricLabs + ", patRegistryMetricMeasures=" + patRegistryMetricMeasures + ", patRegistryOtherMetric=" + patRegistryOtherMetric + ", eDataCaptureDemoInfo=" + eDataCaptureDemoInfo + ", eDataCaptureSex=" + eDataCaptureSex + ", eDataCaptureGender=" + eDataCaptureGender + ", eDataCaptureGenderOtherValue=" + eDataCaptureGenderOtherValue + ", eDataCaptureRace=" + eDataCaptureRace + ", eDataCaptureRaceOtherValue=" + eDataCaptureRaceOtherValue + ", eDataCaptureEthnicity=" + eDataCaptureEthnicity + ", eDataCaptureEthnicityOtherValue=" + eDataCaptureEthnicityOtherValue + ", eDataCaptureInclusion=" + eDataCaptureInclusion + ", eDataCaptureExclusion=" + eDataCaptureExclusion + ", eDataCaptureLocation=" + eDataCaptureLocation + ", eDataCaptureLocationOtherValue=" + eDataCaptureLocationOtherValue + ", eDataCaptureLevelOfCare=" + eDataCaptureLevelOfCare + ", eDataCaptureLevelOfCareOtherValue=" + eDataCaptureLevelOfCareOtherValue + ", eDataCaptureLocationInfo=" + eDataCaptureLocationInfo + ", eDataCaptureStartDate=" + eDataCaptureStartDate + ", eDataCaptureFrequency=" + eDataCaptureFrequency + ", eDataCaptureInfoToCapture=" + eDataCaptureInfoToCapture + ", eDataCaptureEntrantOfData=" + eDataCaptureEntrantOfData + ", eDataCapturePlatform=" + eDataCapturePlatform + ", eDataCaptureVisualize=" + eDataCaptureVisualize + ", eDataCaptureHowToVisualize=" + eDataCaptureHowToVisualize + ", dataExtractionDemoInfo=" + dataExtractionDemoInfo + ", dataExtractionAge=" + dataExtractionAge + ", dataExtractionSex=" + dataExtractionSex + ", dataExtractionGender=" + dataExtractionGender + ", dataExtractionGenderOtherValue=" + dataExtractionGenderOtherValue + ", dataExtractionRace=" + dataExtractionRace + ", dataExtractionRaceOtherValue=" + dataExtractionRaceOtherValue + ", dataExtractionEthnicity=" + dataExtractionEthnicity + ", dataExtractionEthnicityOtherValue=" + dataExtractionEthnicityOtherValue + ", dataExtractionInclusion=" + dataExtractionInclusion + ", dataExtractionExclusion=" + dataExtractionExclusion + ", dataExtractionLocation=" + dataExtractionLocation + ", dataExtractionLocationOtherValue=" + dataExtractionLocationOtherValue + ", dataExtractionLevelOfCare=" + dataExtractionLevelOfCare + ", dataExtractionLevelOfCareOtherValue=" + dataExtractionLevelOfCareOtherValue + ", dataExtractionLocationInfo=" + dataExtractionLocationInfo + ", dataExtractionStartDate=" + dataExtractionStartDate + ", dataExtractionEndDate=" + dataExtractionEndDate + ", dataExtractionFrequency=" + dataExtractionFrequency + ", dataExtractionWhatDataToExtract=" + dataExtractionWhatDataToExtract + ", dataExtractionDeliveryLocation=" + dataExtractionDeliveryLocation + ", dataExtractionDataFormat=" + dataExtractionDataFormat + ", dataExtractionExternalCollaboration=" + dataExtractionExternalCollaboration + ", patRecruitmentDemoInfo=" + patRecruitmentDemoInfo + ", patRecruitmentAge=" + patRecruitmentAge + ", patRecruitmentSex=" + patRecruitmentSex + ", patRecruitmentGender=" + patRecruitmentGender + ", patRecruitmentGenderOtherValue=" + patRecruitmentGenderOtherValue + ", patRecruitmentRace=" + patRecruitmentRace + ", patRecruitmentRaceOtherValue=" + patRecruitmentRaceOtherValue + ", patRecruitmentEthnicity=" + patRecruitmentEthnicity + ", patRecruitmentEthnicityOtherValue=" + patRecruitmentEthnicityOtherValue + ", patRecruitmentInclusion=" + patRecruitmentInclusion + ", patRecruitmentExclusion=" + patRecruitmentExclusion + ", patRecruitmentLocation=" + patRecruitmentLocation + ", patRecruitmentLocationOtherValue=" + patRecruitmentLocationOtherValue + ", patRecruitmentLevelOfCare=" + patRecruitmentLevelOfCare + ", patRecruitmentLevelOfCareOtherValue=" + patRecruitmentLevelOfCareOtherValue + ", patRecruitmentLocationInfo=" + patRecruitmentLocationInfo + ", patRecruitmentStartDate=" + patRecruitmentStartDate + ", patRecruitmentLength=" + patRecruitmentLength + ", patRecruitmentContactMethod=" + patRecruitmentContactMethod + ", patRecruitmentContactPerson=" + patRecruitmentContactPerson + ", patRecruitmentContactStudyTeamJHED=" + patRecruitmentContactStudyTeamJHED + '}';
     }
     
     
     
 }
+
+

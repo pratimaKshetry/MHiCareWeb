@@ -1,5 +1,4 @@
 edu\jhu\mhicareweb\business\Credential.class
-edu\jhu\mhicareweb\business\MHIRequestDataTest.class
 edu\jhu\mhicareweb\MHICareSession.class
 edu\jhu\mhicareweb\entities\UserRolesJpaController.class
 edu\jhu\mhicareweb\entities\UsersJpaController.class
