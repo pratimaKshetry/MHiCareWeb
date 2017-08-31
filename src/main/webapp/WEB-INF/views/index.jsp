@@ -11,8 +11,9 @@
         <div id="page-wrapper">
                 
                 <!-- Header -->
+            <div id="header-wrapper">
                 <jsp:include page="/WEB-INF/templates/header.jsp"/>
-
+            
 		<!-- Hero -->
 		<section id="hero" class="container">
                     <header>
@@ -33,9 +34,6 @@
 		<div class="container">
                     <div class="row">
 			<section class="6u 12u(narrower) feature">
-                            <div class="image-wrapper first">
-				<a href="patient.html" class="image featured first"><img src="images/ptportal.jpg" alt="" /></a>
-                            </div>
                             <header>
 				<h2>Patient Portal</h2>
                             </header>
@@ -47,9 +45,6 @@
                             </ul>
 			</section>
 			<section class="6u 12u(narrower) feature">
-                            <div class="image-wrapper">
-				<a href="provider.html" class="image featured"><img src="images/providerportal.jpg" alt="" /></a>
-                            </div>
                             <header>
 				<h2>Provider Portal</h2>
                             </header>

@@ -14,28 +14,7 @@
 
             <!-- HEADER -->
             <div id="header-wrapper">
-		<div id="header" class="container">
-
-                    <!-- LOGO -->
-                    <h1 id="logo"><a href="./index.html">MHi-CARE</a></h1>
-
-                    <!-- NAV -->
-                    <nav id="nav">
-			<ul>
-                            <li><a href="./patient.html">Patient</a></li>
-                            <li><a href="./provider.html">Provider</a>
-                                <ul>
-                                    <li><a href="./account">MHi-ACCOUNT</a></li>
-                                    <li><a href="./request">MHi-REQUEST</a></li>
-                                    <li><a href="./library">MHi-LIBRARY</a></li>
-                                    <li><a href="#">MHi-FAQ</a></li>											
-				</ul>
-                            </li>
-                            <li class="break"><a href="./resources">MHi-RESOURCES</a></li>
-                            <li><a href="./about.html">About</a></li>
-			</ul>
-                    </nav>
-		</div>
+		<jsp:include page="/WEB-INF/templates/header.jsp"/>
             </div>
             
             <!-- MAIN -->
@@ -54,19 +33,23 @@
                         <h3 class="quest-header"><strong>PI:</strong></h3>
                         <div class="row 33%">
                             <div class="4u 8u(mobile)">
-                                <label for="piName">Name: </label>
-                                <input  name="piName" id="piName" placeholder="Last Name First Name" type="text" required />
+                                <label for="piFirstName">First Name: </label>
+                                <input  name="piFirstName" id="piFirstName" type="text" required />
                             </div>
                             <div class="4u 8u(mobile)">
-                                <label for="piJhed">JHED ID: </label>
-                                <input  name="piJhed" id="piJhed" type="text" required />
+                                <label for="piLastName">Last Name: </label>
+                                <input  name="piLastName" id="piLastName" type="text" required />
                             </div>
+                            <div class="4u 8u(mobile)">
+                                <label for="piJHED">JHED ID: </label>
+                                <input  name="piJHED" id="piJHED" type="text" required />
+                            </div>
+                        </div>
+                        <div class="row 33%">
                             <div class="4u 8u(mobile)">
                                 <label for="piEmail">Email: </label>
                                 <input  name="piEmail" id="piEmail" placeholder="you@example.com" type="email" required />
                             </div>
-                        </div>
-                        <div class="row 33%">
                             <div class="4u 8u(mobile)">
                                 <label for="phone">Contact Phone Number: </label>
                                 <input  name="phone" id="phone" type="text" required />
@@ -78,7 +61,7 @@
                         </div>
                         <br />
                         Is the person making the submission different from the PI?
-                        <input type="radio"  name="submitterCheck" id="submitterDifferent" value='submitterDifferent' onchange="document.getElementById('submitterName').disabled = !this.checked; document.getElementById('submitterJhedID').disabled = !this.checked; document.getElementById('submitterEmail').disabled = !this.checked;" />
+                        <input type="radio"  name="submitterCheck" id="submitterDifferent" value='submitterDifferent' onchange="document.getElementById('submitterFirstName').disabled = !this.checked; document.getElementById('submitterLastName').disabled = !this.checked; document.getElementById('submitterJHED').disabled = !this.checked; document.getElementById('submitterEmail').disabled = !this.checked;" required />
                         <label for='submitterCheck' class="inline"> Yes </label>
                         <input type="radio" name="submitterCheck" id="submitterSame" value='submitterSame'> 
                         <label for='submitterDifferent' class="inline"> No </label>
@@ -86,16 +69,20 @@
                         <div class='hidden' id="submitter">
                             <br />
                             <h3 class="quest-header"><strong>Submitter:</strong></h3>
-                            <div class="row 33%">
-                                <div class="4u 8u(mobile)">
-                                    <label for="submitterName">Name: </label>
-                                    <input  name="submitterName" id="submitterName" placeholder="Last Name, First Name" type="text" required disabled />
+                            <div class="row 25%">
+                                <div class="3u 6u(mobile)">
+                                    <label for="submitterFirstName">First Name: </label>
+                                    <input  name="submitterFirstName" id="submitterFirstName" type="text" required disabled />
                                 </div>
-                                <div class="4u 8u(mobile)">
-                                    <label for="submitterJhedID">JHED ID: </label>
-                                    <input  name="submitterJhedID" id="submitterJhedID" type="text" required disabled />
+                                <div class="3u 6u(mobile)">
+                                    <label for="submitterLastName">Last Name: </label>
+                                    <input  name="submitterLastName" id="submitterLastName" type="text" required disabled />
                                 </div>
-                                <div class="4u 8u(mobile)">
+                                <div class="3u 6u(mobile)">
+                                    <label for="submitterJHED">JHED ID: </label>
+                                    <input  name="submitterJHED" id="submitterJHED" type="text" required disabled />
+                                </div>
+                                <div class="3u 6u(mobile)">
                                     <label for="submitterEmail">Email: </label>
                                     <input  name="submitterEmail" id="submitterEmail" placeholder="you@example.com" type="email" required disabled />
                                 </div>
@@ -106,10 +93,14 @@
                         <h3 class="quest-header"><strong>Other Study Team Members:</strong></h3>
                         <table id="stmember">
                             <tbody>
-                                <tr class="model-row">
-                                    <td>Name:
-                                        <label for="studyTeamMemberName"></label>
-                                        <input type="text"  name="studyTeamMemberName" id="studyTeamMemberName" placeholder="Last Name, First Name" required disabled />
+                                <tr class="model-row" id="stmemberrow">
+                                    <td>First Name:
+                                        <label for="studyTeamMemberFirstName"></label>
+                                        <input type="text"  name="studyTeamMemberFirstName" id="studyTeamMemberFirstName" required disabled />
+                                    </td>
+                                    <td>Last Name:
+                                        <label for="studyTeamMemberLastName"></label>
+                                        <input type="text"  name="studyTeamMemberLastName" id="studyTeamMemberLastName" required disabled />
                                     </td>
                                     <td>JHED ID:
                                         <label for="studyTeamMemberJHED"></label>
@@ -123,8 +114,8 @@
                             </tbody>
                         </table>
                         <center>
-                            <button type="button" id="add" onclick="document.getElementById('studyTeamMemberName').disabled=false; document.getElementById('studyTeamMemberJHED').disabled=false; document.getElementById('studyTeamMemberEmail').disabled=false;">Add Study Team Member</button>
-                            <button type="button" id="delete" onclick="document.getElementById('studyTeamMemberName').disabled=true; document.getElementById('studyTeamMemberJHED').disabled=true; document.getElementById('studyTeamMemberEmail').disabled=true;">Remove Study Team Member</button>
+                            <button type="button" id="add" onclick="document.getElementById('studyTeamMemberFirstName').disabled=false; document.getElementById('studyTeamMemberLastName').disabled=false; document.getElementById('studyTeamMemberJHED').disabled=false; document.getElementById('studyTeamMemberEmail').disabled=false;">Add Study Team Member</button>
+                            <button type="button" id="delete" onclick="document.getElementById('studyTeamMemberFirstName').disabled=true; document.getElementById('studyTeamMemberLastName').disabled=true; document.getElementById('studyTeamMemberJHED').disabled=true; document.getElementById('studyTeamMemberEmail').disabled=true;">Remove Study Team Member</button>
                         </center>
                         <br />
                         <h3><strong>Study Information:</strong></h3>
@@ -148,13 +139,13 @@
                                 <ul class="requestUOList">
                                     <li><input type="checkbox" name="toolset" id="patStudyEstimateCheck" value="Patient estimate for study design" onchange="document.getElementById('patStudyEstimateAge').disabled = !this.checked; document.getElementById('patStudyEstimateSexMale').disabled = !this.checked; document.getElementById('patStudyEstimateSexFemale').disabled = !this.checked; document.getElementById('patStudyEstimateSexNonBinary').disabled = !this.checked; document.getElementById('patStudyEstimateSexAll').disabled = !this.checked; document.getElementById('patStudyEstimateGenderCisMan').disabled = !this.checked; document.getElementById('patStudyEstimateGenderCisWoman').disabled = !this.checked; document.getElementById('patStudyEstimateGenderTransMan').disabled = !this.checked; document.getElementById('patStudyEstimateGenderTransWoman').disabled = !this.checked; document.getElementById('patStudyEstimateGenderOther').disabled = !this.checked; document.getElementById('patStudyEstimateGenderAll').disabled = !this.checked; document.getElementById('patStudyEstimateRaceAsian').disabled = !this.checked; document.getElementById('patStudyEstimateRaceNativeAmerican').disabled = !this.checked; document.getElementById('patStudyEstimateRaceWhite').disabled = !this.checked; document.getElementById('patStudyEstimateRaceBlack').disabled = !this.checked; document.getElementById('patStudyEstimateRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('patStudyEstimateRaceOther').disabled = !this.checked; document.getElementById('patStudyEstimateRaceAll').disabled = !this.checked; document.getElementById('patStudyEstimateEthnicityLatino').disabled = !this.checked; document.getElementById('patStudyEstimateEthnicityNonLatino').disabled = !this.checked; document.getElementById('patStudyEstimateEthnicityOther').disabled = !this.checked; document.getElementById('patStudyEstimateEthnicityAll').disabled = !this.checked; document.getElementById('patStudyEstimateInclusion').disabled = !this.checked; document.getElementById('patStudyEstimateExclusion').disabled = !this.checked; document.getElementById('patStudyEstimateLocationJHH').disabled = !this.checked; document.getElementById('patStudyEstimateLocationJHBMC').disabled = !this.checked; document.getElementById('patStudyEstimateLocationAll').disabled = !this.checked; document.getElementById('patStudyEstimateLocationOther').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCarePRP').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCareSchool').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCareMobile').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCareInpatient').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCareOther').disabled = !this.checked; document.getElementById('patStudyEstimateLevelOfCareAll').disabled = !this.checked; document.getElementById('patStudyEstimateLocation').disabled = !this.checked;" data-grouprequired="">
                                         <label for="patStudyEstimateCheck" class="tool-head inline"> Patient estimate for study design </label><img class="qmark" id="ss-help" src="./images/qmark-icon.png" alt="" title="Obtain an estimate of the number of patients in a specified population" /></li>
-                                    <li><input type="checkbox" name="toolset" id="patRegistryCheck" value="Patient registry" onchange="document.getElementById('patRegistryAge').disabled = !this.checked; document.getElementById('patRegistrySexMale').disabled = !this.checked; document.getElementById('patRegistrySexFemale').disabled = !this.checked; document.getElementById('patRegistrySexNonBinary').disabled = !this.checked; document.getElementById('patRegistrySexAll').disabled = !this.checked; document.getElementById('patRegistryGenderCisMan').disabled = !this.checked; document.getElementById('patRegistryGenderCisWoman').disabled = !this.checked; document.getElementById('patRegistryGenderTransMan').disabled = !this.checked; document.getElementById('patRegistryGenderTransWoman').disabled = !this.checked; document.getElementById('patRegistryGenderOther').disabled = !this.checked; document.getElementById('patRegistryGenderAll').disabled = !this.checked; document.getElementById('patRegistryRaceAsian').disabled = !this.checked; document.getElementById('patRegistryRaceNativeAmerican').disabled = !this.checked; document.getElementById('patRegistryRaceWhite').disabled = !this.checked; document.getElementById('patRegistryRaceBlack').disabled = !this.checked; document.getElementById('patRegistryRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('patRegistryRaceOther').disabled = !this.checked; document.getElementById('patRegistryRaceAll').disabled = !this.checked; document.getElementById('patRegistryEthnicityLatino').disabled = !this.checked; document.getElementById('patRegistryEthnicityNonLatino').disabled = !this.checked; document.getElementById('patRegistryEthnicityOther').disabled = !this.checked; document.getElementById('patRegistryEthnicityAll').disabled = !this.checked; document.getElementById('patRegistryInclusion').disabled = !this.checked; document.getElementById('patRegistryExclusion').disabled = !this.checked; document.getElementById('patRegistryLocationJHH').disabled = !this.checked; document.getElementById('patRegistryLocationJHBMC').disabled = !this.checked; document.getElementById('patRegistryLocationAll').disabled = !this.checked; document.getElementById('patRegistryLocationOther').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('patRegistryLevelOfCarePRP').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareSchool').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareMobile').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareInpatient').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareOther').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareAll').disabled = !this.checked; document.getElementById('patRegistryLocationInfo').disabled = !this.checked; document.getElementById('patRegistryMetricDiagnoses').disabled = !this.checked; document.getElementById('patRegistryMetricMeds').disabled = !this.checked; document.getElementById('patRegistryMetricLabs').disabled = !this.checked; document.getElementById('patRegistryMetricMeasures').disabled = !this.checked; document.getElementById('patRegistryOtherMetric').disabled = !this.checked;" data-grouprequired="">
+                                    <li><input type="checkbox" name="toolset" id="patRegistryCheck" value="Patient registry" onchange="document.getElementById('patRegistryAge').disabled = !this.checked; document.getElementById('patRegistrySexMale').disabled = !this.checked; document.getElementById('patRegistrySexFemale').disabled = !this.checked; document.getElementById('patRegistrySexNonBinary').disabled = !this.checked; document.getElementById('patRegistrySexAll').disabled = !this.checked; document.getElementById('patRegistryGenderCisMan').disabled = !this.checked; document.getElementById('patRegistryGenderCisWoman').disabled = !this.checked; document.getElementById('patRegistryGenderTransMan').disabled = !this.checked; document.getElementById('patRegistryGenderTransWoman').disabled = !this.checked; document.getElementById('patRegistryGenderOther').disabled = !this.checked; document.getElementById('patRegistryGenderAll').disabled = !this.checked; document.getElementById('patRegistryRaceAsian').disabled = !this.checked; document.getElementById('patRegistryRaceNativeAmerican').disabled = !this.checked; document.getElementById('patRegistryRaceWhite').disabled = !this.checked; document.getElementById('patRegistryRaceBlack').disabled = !this.checked; document.getElementById('patRegistryRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('patRegistryRaceOther').disabled = !this.checked; document.getElementById('patRegistryRaceAll').disabled = !this.checked; document.getElementById('patRegistryEthnicityLatino').disabled = !this.checked; document.getElementById('patRegistryEthnicityNonLatino').disabled = !this.checked; document.getElementById('patRegistryEthnicityOther').disabled = !this.checked; document.getElementById('patRegistryEthnicityAll').disabled = !this.checked; document.getElementById('patRegistryInclusion').disabled = !this.checked; document.getElementById('patRegistryExclusion').disabled = !this.checked; document.getElementById('patRegistryLocationJHH').disabled = !this.checked; document.getElementById('patRegistryLocationJHBMC').disabled = !this.checked; document.getElementById('patRegistryLocationAll').disabled = !this.checked; document.getElementById('patRegistryLocationOther').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('patRegistryLevelOfCarePRP').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareSchool').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareMobile').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareInpatient').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareOther').disabled = !this.checked; document.getElementById('patRegistryLevelOfCareAll').disabled = !this.checked; document.getElementById('patRegistryLocationInfo').disabled = !this.checked; document.getElementById('patRegistryMetricDiagnoses').disabled = !this.checked; document.getElementById('patRegistryMetricMeds').disabled = !this.checked; document.getElementById('patRegistryMetricLabs').disabled = !this.checked; document.getElementById('patRegistryMetricMeasures').disabled = !this.checked; document.getElementById('patRegistryMetricOther').disabled = !this.checked;">
                                         <label for="patRegistryCheck" class="tool-head inline"> Patient registry </label><img class="qmark" src="./images/qmark-icon.png" alt="" title="Track information on patients over time" /></li>
-                                    <li><input type="checkbox" name="toolset" id="electronicDataCaptureCheck" value="Electronic data capture" onchange="document.getElementById('eDataCaptureAge').disabled = !this.checked; document.getElementById('eDataCaptureSexMale').disabled = !this.checked; document.getElementById('eDataCaptureSexFemale').disabled = !this.checked; document.getElementById('eDataCaptureSexNonBinary').disabled = !this.checked; document.getElementById('eDataCaptureSexAll').disabled = !this.checked; document.getElementById('eDataCaptureGenderCisMan').disabled = !this.checked; document.getElementById('eDataCaptureGenderCisWoman').disabled = !this.checked; document.getElementById('eDataCaptureGenderTransMan').disabled = !this.checked; document.getElementById('eDataCaptureGenderTransWoman').disabled = !this.checked; document.getElementById('eDataCaptureGenderOther').disabled = !this.checked; document.getElementById('eDataCaptureGenderAll').disabled = !this.checked; document.getElementById('eDataCaptureRaceAsian').disabled = !this.checked; document.getElementById('eDataCaptureRaceNativeAmerican').disabled = !this.checked; document.getElementById('eDataCaptureRaceWhite').disabled = !this.checked; document.getElementById('eDataCaptureRaceBlack').disabled = !this.checked; document.getElementById('eDataCaptureRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('eDataCaptureRaceOther').disabled = !this.checked; document.getElementById('eDataCaptureRaceAll').disabled = !this.checked; document.getElementById('eDataCaptureEthnicityLatino').disabled = !this.checked; document.getElementById('eDataCaptureEthnicityNonLatino').disabled = !this.checked; document.getElementById('eDataCaptureEthnicityOther').disabled = !this.checked; document.getElementById('eDataCaptureEthnicityAll').disabled = !this.checked; document.getElementById('eDataCaptureInclusion').disabled = !this.checked; document.getElementById('eDataCaptureExclusion').disabled = !this.checked; document.getElementById('eDataCaptureLocationJHH').disabled = !this.checked; document.getElementById('eDataCaptureLocationJHBMC').disabled = !this.checked; document.getElementById('eDataCaptureLocation-both').disabled = !this.checked; document.getElementById('eDataCaptureLocationOther').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCarePRP').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareSchool').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareMobile').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareInpatient').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareOther').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareAll').disabled = !this.checked; document.getElementById('eDataCaptureLocationInfo').disabled = !this.checked; document.getElementById('eDataCaptureStartDate').disabled = !this.checked; document.getElementById('eDataCaptureFrequency').disabled = !this.checked; document.getElementById('eDataCaptureLength').disabled = !this.checked; document.getElementById('eDataCaptureInfoToCapture').disabled = !this.checked; document.getElementById('eDataCaptureEntrantOfData').disabled = !this.checked; document.getElementById('eDataCapturePlatform').disabled = !this.checked; document.getElementById('eDataCaptureVisualize').disabled = !this.checked; document.getElementById('eDataCaptureDoNotVisualize').disabled = !this.checked;" data-grouprequired="">
+                                    <li><input type="checkbox" name="toolset" id="electronicDataCaptureCheck" value="Electronic data capture" onchange="document.getElementById('eDataCaptureAge').disabled = !this.checked; document.getElementById('eDataCaptureSexMale').disabled = !this.checked; document.getElementById('eDataCaptureSexFemale').disabled = !this.checked; document.getElementById('eDataCaptureSexNonBinary').disabled = !this.checked; document.getElementById('eDataCaptureSexAll').disabled = !this.checked; document.getElementById('eDataCaptureGenderCisMan').disabled = !this.checked; document.getElementById('eDataCaptureGenderCisWoman').disabled = !this.checked; document.getElementById('eDataCaptureGenderTransMan').disabled = !this.checked; document.getElementById('eDataCaptureGenderTransWoman').disabled = !this.checked; document.getElementById('eDataCaptureGenderOther').disabled = !this.checked; document.getElementById('eDataCaptureGenderAll').disabled = !this.checked; document.getElementById('eDataCaptureRaceAsian').disabled = !this.checked; document.getElementById('eDataCaptureRaceNativeAmerican').disabled = !this.checked; document.getElementById('eDataCaptureRaceWhite').disabled = !this.checked; document.getElementById('eDataCaptureRaceBlack').disabled = !this.checked; document.getElementById('eDataCaptureRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('eDataCaptureRaceOther').disabled = !this.checked; document.getElementById('eDataCaptureRaceAll').disabled = !this.checked; document.getElementById('eDataCaptureEthnicityLatino').disabled = !this.checked; document.getElementById('eDataCaptureEthnicityNonLatino').disabled = !this.checked; document.getElementById('eDataCaptureEthnicityOther').disabled = !this.checked; document.getElementById('eDataCaptureEthnicityAll').disabled = !this.checked; document.getElementById('eDataCaptureInclusion').disabled = !this.checked; document.getElementById('eDataCaptureExclusion').disabled = !this.checked; document.getElementById('eDataCaptureLocationJHH').disabled = !this.checked; document.getElementById('eDataCaptureLocationJHBMC').disabled = !this.checked; document.getElementById('eDataCaptureLocationAll').disabled = !this.checked; document.getElementById('eDataCaptureLocationOther').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCarePRP').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareSchool').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareMobile').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareInpatient').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareOther').disabled = !this.checked; document.getElementById('eDataCaptureLevelOfCareAll').disabled = !this.checked; document.getElementById('eDataCaptureLocationInfo').disabled = !this.checked; document.getElementById('eDataCaptureStartDate').disabled = !this.checked; document.getElementById('eDataCaptureFrequency').disabled = !this.checked; document.getElementById('eDataCaptureLength').disabled = !this.checked; document.getElementById('eDataCaptureInfoToCapture').disabled = !this.checked; document.getElementById('eDataCaptureEntrantOfData').disabled = !this.checked; document.getElementById('eDataCapturePlatform').disabled = !this.checked; document.getElementById('eDataCaptureVisualize').disabled = !this.checked; document.getElementById('eDataCaptureDoNotVisualize').disabled = !this.checked;">
                                         <label for="electronicDataCaptureCheck" class="tool-head inline"> Electronic data capture </label><img class="qmark" src="./images/qmark-icon.png" alt="" title="Build tools within and alongside the EMR to capture patient data" /></li>
-                                    <li><input type="checkbox" name="toolset" id="dataExtractionCheck" value="Data extraction" onchange="document.getElementById('dataExtractionAge').disabled = !this.checked; document.getElementById('dataExtractionSexMale').disabled = !this.checked; document.getElementById('dataExtractionSexFemale').disabled = !this.checked; document.getElementById('dataExtractionSexNonBinary').disabled = !this.checked; document.getElementById('dataExtractionSexAll').disabled = !this.checked; document.getElementById('dataExtractionGenderCisMan').disabled = !this.checked; document.getElementById('dataExtractionGenderCisWoman').disabled = !this.checked; document.getElementById('dataExtractionGenderTransMan').disabled = !this.checked; document.getElementById('dataExtractionGenderTransWoman').disabled = !this.checked; document.getElementById('dataExtractionGenderOther').disabled = !this.checked; document.getElementById('dataExtractionGenderAll').disabled = !this.checked; document.getElementById('dataExtractionRaceAsian').disabled = !this.checked; document.getElementById('dataExtractionRaceNativeAmerican').disabled = !this.checked; document.getElementById('dataExtractionRaceWhite').disabled = !this.checked; document.getElementById('dataExtractionRaceBlack').disabled = !this.checked; document.getElementById('dataExtractionRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('dataExtractionRaceOther').disabled = !this.checked; document.getElementById('dataExtractionRaceAll').disabled = !this.checked; document.getElementById('dataExtractionEthnicityLatino').disabled = !this.checked; document.getElementById('dataExtractionEthnicityNonLatino').disabled = !this.checked; document.getElementById('dataExtractionEthnicityOther').disabled = !this.checked; document.getElementById('dataExtractionEthnicityAll').disabled = !this.checked; document.getElementById('dataExtractionInclusion').disabled = !this.checked; document.getElementById('dataExtractionExclusion').disabled = !this.checked; document.getElementById('dataExtractionLocationJHH').disabled = !this.checked; document.getElementById('dataExtractionLocationJHBMC').disabled = !this.checked; document.getElementById('dataExtractionLocationAll').disabled = !this.checked; document.getElementById('dataExtractionLocationOther').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCarePRP').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareSchool').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareMobile').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareInpatient').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareOther').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareAll').disabled = !this.checked; document.getElementById('dataExtractionLocationInfo').disabled = !this.checked; document.getElementById('dataExtractionStartDate').disabled = !this.checked; document.getElementById('dataExtractionFrequency').disabled = !this.checked; document.getElementById('dataExtractionEndDate').disabled = !this.checked; document.getElementById('dataExtractionWhatDataToExtract').disabled = !this.checked; document.getElementById('dataExtractionDeliveryLocation').disabled = !this.checked; document.getElementById('dataExtractionDataFormat').disabled = !this.checked; document.getElementById('dataExtractionExternalCollaboration').disabled = !this.checked;" data-grouprequired="">
+                                    <li><input type="checkbox" name="toolset" id="dataExtractionCheck" value="Data extraction" onchange="document.getElementById('dataExtractionAge').disabled = !this.checked; document.getElementById('dataExtractionSexMale').disabled = !this.checked; document.getElementById('dataExtractionSexFemale').disabled = !this.checked; document.getElementById('dataExtractionSexNonBinary').disabled = !this.checked; document.getElementById('dataExtractionSexAll').disabled = !this.checked; document.getElementById('dataExtractionGenderCisMan').disabled = !this.checked; document.getElementById('dataExtractionGenderCisWoman').disabled = !this.checked; document.getElementById('dataExtractionGenderTransMan').disabled = !this.checked; document.getElementById('dataExtractionGenderTransWoman').disabled = !this.checked; document.getElementById('dataExtractionGenderOther').disabled = !this.checked; document.getElementById('dataExtractionGenderAll').disabled = !this.checked; document.getElementById('dataExtractionRaceAsian').disabled = !this.checked; document.getElementById('dataExtractionRaceNativeAmerican').disabled = !this.checked; document.getElementById('dataExtractionRaceWhite').disabled = !this.checked; document.getElementById('dataExtractionRaceBlack').disabled = !this.checked; document.getElementById('dataExtractionRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('dataExtractionRaceOther').disabled = !this.checked; document.getElementById('dataExtractionRaceAll').disabled = !this.checked; document.getElementById('dataExtractionEthnicityLatino').disabled = !this.checked; document.getElementById('dataExtractionEthnicityNonLatino').disabled = !this.checked; document.getElementById('dataExtractionEthnicityOther').disabled = !this.checked; document.getElementById('dataExtractionEthnicityAll').disabled = !this.checked; document.getElementById('dataExtractionInclusion').disabled = !this.checked; document.getElementById('dataExtractionExclusion').disabled = !this.checked; document.getElementById('dataExtractionLocationJHH').disabled = !this.checked; document.getElementById('dataExtractionLocationJHBMC').disabled = !this.checked; document.getElementById('dataExtractionLocationAll').disabled = !this.checked; document.getElementById('dataExtractionLocationOther').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCarePRP').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareSchool').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareMobile').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareInpatient').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareOther').disabled = !this.checked; document.getElementById('dataExtractionLevelOfCareAll').disabled = !this.checked; document.getElementById('dataExtractionLocationInfo').disabled = !this.checked; document.getElementById('dataExtractionStartDate').disabled = !this.checked; document.getElementById('dataExtractionFrequency').disabled = !this.checked; document.getElementById('dataExtractionEndDate').disabled = !this.checked; document.getElementById('dataExtractionWhatDataToExtract').disabled = !this.checked; document.getElementById('dataExtractionDeliveryLocation').disabled = !this.checked; document.getElementById('dataExtractionDataFormat').disabled = !this.checked; document.getElementById('dataExtractionExternalCollaboration').disabled = !this.checked;">
                                         <label for="dataExtractionCheck" class="tool-head inline"> Data extraction </label><img class="qmark" src="./images/qmark-icon.png" alt="" title="Identify a patient population and extract specified data from the EMR"/></li>
-                                    <li><input type="checkbox" name="toolset" id="patRecruitmentCheck" value="Recruitment for research" onchange="document.getElementById('patRecruitmentAge').disabled = !this.checked; document.getElementById('patRecruitmentSexMale').disabled = !this.checked; document.getElementById('patRecruitmentSexFemale').disabled = !this.checked; document.getElementById('patRecruitmentSexNonBinary').disabled = !this.checked; document.getElementById('patRecruitmentSexAll').disabled = !this.checked; document.getElementById('patRecruitmentGenderCisMan').disabled = !this.checked; document.getElementById('patRecruitmentGenderCisWoman').disabled = !this.checked; document.getElementById('patRecruitmentGenderTransMan').disabled = !this.checked; document.getElementById('patRecruitmentGenderTransWoman').disabled = !this.checked; document.getElementById('patRecruitmentGenderOther').disabled = !this.checked; document.getElementById('patRecruitmentGenderAll').disabled = !this.checked; document.getElementById('patRecruitmentRaceAsian').disabled = !this.checked; document.getElementById('patRecruitmentRaceNativeAmerican').disabled = !this.checked; document.getElementById('patRecruitmentRaceWhite').disabled = !this.checked; document.getElementById('patRecruitmentRaceBlack').disabled = !this.checked; document.getElementById('patRecruitmentRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('patRecruitmentRaceOther').disabled = !this.checked; document.getElementById('patRecruitmentRaceAll').disabled = !this.checked; document.getElementById('patRecruitmentEthnicityLatino').disabled = !this.checked; document.getElementById('patRecruitmentEthnicityNonLatino').disabled = !this.checked; document.getElementById('patRecruitmentEthnicityOther').disabled = !this.checked; document.getElementById('patRecruitmentEthnicityAll').disabled = !this.checked; document.getElementById('patRecruitmentInclusion').disabled = !this.checked; document.getElementById('patRecruitmentExclusion').disabled = !this.checked; document.getElementById('patRecruitmentLocationJHH').disabled = !this.checked; document.getElementById('patRecruitmentLocationJHBMC').disabled = !this.checked; document.getElementById('patRecruitmentLocationAll').disabled = !this.checked; document.getElementById('patRecruitmentLocationOther').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCarePRP').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareSchool').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareMobile').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareInpatient').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareOther').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareAll').disabled = !this.checked; document.getElementById('patRecruitmentLocationInfo').disabled = !this.checked; document.getElementById('patRecruitmentStartDate').disabled = !this.checked; document.getElementById('patRecruitmentLength').disabled = !this.checked; document.getElementById('patRecruitmentContactPatient').disabled = !this.checked; document.getElementById('patRecruitmentContactStudyTeam').disabled = !this.checked; document.getElementById('patRecruitmentContactProvider').disabled = !this.checked; document.getElementById('patRecruitmentContactPI').disabled = !this.checked; document.getElementById('patRecruitmentContactSubmitter').disabled = !this.checked;" data-grouprequired="">
+                                    <li><input type="checkbox" name="toolset" id="patRecruitmentCheck" value="Recruitment for research" onchange="document.getElementById('patRecruitmentAge').disabled = !this.checked; document.getElementById('patRecruitmentSexMale').disabled = !this.checked; document.getElementById('patRecruitmentSexFemale').disabled = !this.checked; document.getElementById('patRecruitmentSexNonBinary').disabled = !this.checked; document.getElementById('patRecruitmentSexAll').disabled = !this.checked; document.getElementById('patRecruitmentGenderCisMan').disabled = !this.checked; document.getElementById('patRecruitmentGenderCisWoman').disabled = !this.checked; document.getElementById('patRecruitmentGenderTransMan').disabled = !this.checked; document.getElementById('patRecruitmentGenderTransWoman').disabled = !this.checked; document.getElementById('patRecruitmentGenderOther').disabled = !this.checked; document.getElementById('patRecruitmentGenderAll').disabled = !this.checked; document.getElementById('patRecruitmentRaceAsian').disabled = !this.checked; document.getElementById('patRecruitmentRaceNativeAmerican').disabled = !this.checked; document.getElementById('patRecruitmentRaceWhite').disabled = !this.checked; document.getElementById('patRecruitmentRaceBlack').disabled = !this.checked; document.getElementById('patRecruitmentRaceHawaiiPacificIslander').disabled = !this.checked; document.getElementById('patRecruitmentRaceOther').disabled = !this.checked; document.getElementById('patRecruitmentRaceAll').disabled = !this.checked; document.getElementById('patRecruitmentEthnicityLatino').disabled = !this.checked; document.getElementById('patRecruitmentEthnicityNonLatino').disabled = !this.checked; document.getElementById('patRecruitmentEthnicityOther').disabled = !this.checked; document.getElementById('patRecruitmentEthnicityAll').disabled = !this.checked; document.getElementById('patRecruitmentInclusion').disabled = !this.checked; document.getElementById('patRecruitmentExclusion').disabled = !this.checked; document.getElementById('patRecruitmentLocationJHH').disabled = !this.checked; document.getElementById('patRecruitmentLocationJHBMC').disabled = !this.checked; document.getElementById('patRecruitmentLocationAll').disabled = !this.checked; document.getElementById('patRecruitmentLocationOther').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareOutpatient').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCarePRP').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareSchool').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareCaseManagement').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareMobile').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareDayHospital').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareInpatient').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareOther').disabled = !this.checked; document.getElementById('patRecruitmentLevelOfCareAll').disabled = !this.checked; document.getElementById('patRecruitmentLocationInfo').disabled = !this.checked; document.getElementById('patRecruitmentStartDate').disabled = !this.checked; document.getElementById('patRecruitmentLength').disabled = !this.checked; document.getElementById('patRecruitmentContactPatient').disabled = !this.checked; document.getElementById('patRecruitmentContactStudyTeam').disabled = !this.checked; document.getElementById('patRecruitmentContactProvider').disabled = !this.checked;" >
                                         <label for="patRecruitmentCheck" class="tool-head inline"> Recruitment for research </label><img class="qmark" src="./images/qmark-icon.png" alt="" title="Utilize the EMR to recruit patients that meet specified criteria for your study" /></li>
                                 </ul>
                             </div>
@@ -194,9 +185,9 @@
                                             <label for="patStudyEstimateGenderTransMan" class="inline"> Trans-man </label></li> 
                                         <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderTransWoman" value="Trans-woman" disabled />
                                             <label for="patStudyEstimateGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                        <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderOther" value="Other" onclick="showMe('patStudyEstimateGenderOtherValue', this)" onchange="document.getElementById('patStudyEstimateGenderOtherValue').disabled = !this.checked;" disabled />
+                                        <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderOther" value="Other" onchange="document.getElementById('patStudyEstimateGenderOtherValue').disabled = !this.checked;" disabled />
                                             <label for="patStudyEstimateGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patStudyEstimateGenderOtherValue' id="patStudyEstimateGenderOtherValue" class="puppies" required disabled /></li>
-                                        <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderAll" disabled />
+                                        <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderAll" value="All" disabled />
                                             <label for="patStudyEstimateGenderAll" class="inline"> All </label></li> 
                                     </ul>
                                 </div>
@@ -215,9 +206,9 @@
                                             <label for="patStudyEstimateRaceBlack" class="inline"> Black or African American </label></li>
                                         <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                             <label for="patStudyEstimateRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                        <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceOther"  value="Other" onclick="showMe('patStudyEstimateRaceOtherValue', this)" onchange="document.getElementById('patStudyEstimateRaceOtherValue').disabled = !this.checked;" disabled />
+                                        <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceOther"  value="Other" onchange="document.getElementById('patStudyEstimateRaceOtherValue').disabled = !this.checked;" disabled />
                                             <label for="patStudyEstimateRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateRaceOtherValue' id="patStudyEstimateRaceOtherValue" required disabled /></li>
-                                        <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceAll" disabled>
+                                        <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceAll" value="All" disabled>
                                             <label for="patStudyEstimateRaceAll" class="inline"> All </label></li>
                                     </ul>
                                 </div>
@@ -230,7 +221,7 @@
                                             <label for="patStudyEstimateEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
                                         <li><input type="checkbox"  name="patStudyEstimateEthnicity" id="patStudyEstimateEthnicityOther" value="Other" onclick="showMe('patStudyEstimateEthnicityOtherValue', this)" onchange="document.getElementById('patStudyEstimateEthnicityOtherValue').disabled = !this.checked;" disabled />
                                             <label for="patStudyEstimateEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateEthnicityOtherValue' id="patStudyEstimateEthnicityOtherValue" required disabled /></li>
-                                        <li><input type="checkbox"  name="patStudyEstimateEthnicity" value=" All" id="patStudyEstimateEthnicityAll" disabled>
+                                        <li><input type="checkbox"  name="patStudyEstimateEthnicity" id="patStudyEstimateEthnicityAll" value=" All" disabled>
                                             <label for="patStudyEstimateEthnicityAll" class="inline"> All </label></li>
                                     </ul>
                                 </div>
@@ -257,9 +248,9 @@
                                             <label for="patStudyEstimateLocationJHH" class="inline"> JHH </label></li>                                        
                                         <li><input type="checkbox"  name="patStudyEstimateLocation" id="patStudyEstimateLocationJHBMC" value="JHBMC" disabled />
                                             <label for="patStudyEstimateLocationJHBMC" class="inline"> JHBMC </label></li>
-                                        <li><input type="checkbox"  name="patStudyEstimateLocation" id="patStudyEstimateLocationAll" value="Both" disabled />
-                                            <label for="patStudyEstimateLocationAll" class="inline"> Both </label></li>
-                                        <li><input type="checkbox"  name="patStudyEstimateLocation" id="patStudyEstimateLocationOther" value="Other" onclick="showMe('patStudyEstimateLocationOtherValue', this)" onchange="document.getElementById('patStudyEstimateLocationOtherValue').disabled = !this.checked;" disabled />
+                                        <li><input type="checkbox"  name="patStudyEstimateLocation" id="patStudyEstimateLocationAll" value="All" disabled />
+                                            <label for="patStudyEstimateLocationAll" class="inline"> All </label></li>
+                                        <li><input type="checkbox"  name="patStudyEstimateLocation" id="patStudyEstimateLocationOther" value="Other" onchange="document.getElementById('patStudyEstimateLocationOtherValue').disabled = !this.checked;" disabled />
                                             <label for="patStudyEstimateLocationOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateLocationOtherValue' id="patStudyEstimateLocationOtherValue" required disabled /></li>
                                     </ul>	
 				</div>
@@ -280,10 +271,10 @@
                                             <label for="patStudyEstimateLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                         <li><input type="checkbox"  name="patStudyEstimateLevelOfCare" id="patStudyEstimateLevelOfCareInpatient" value="Inpatient" disabled />
                                             <label for="patStudyEstimateLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                        <li><input type="checkbox"  name="patStudyEstimateLevelOfCare" id="patStudyEstimateLevelOfCareOther" onclick="showMe('patStudyEstimateLevelOfCareOtherValue', this)" onchange="document.getElementById('patStudyEstimateLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                        <li><input type="checkbox"  name="patStudyEstimateLevelOfCare" id="patStudyEstimateLevelOfCareOther" value="Other" onchange="document.getElementById('patStudyEstimateLevelOfCareOtherValue').disabled = !this.checked;" disabled />
                                             <label for="patStudyEstimateLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateLevelOfCareOtherValue' id="patStudyEstimateLevelOfCareOtherValue" required disabled /></li>
                                         <li><input type="checkbox"  name="patStudyEstimateLevelOfCare" id="patStudyEstimateLevelOfCareAll" value="All" disabled /> 
-                                            <label for="patStudyEstimateLevelOfCareOther" class="inline"> All </label>
+                                            <label for="patStudyEstimateLevelOfCareAll" class="inline"> All </label>
                                     </ul>	
 				</div>
                             </div>					
@@ -300,12 +291,12 @@
                         <div class="hidden" id="registry">
                             <h3><strong>Patient Registry:</strong></h3>
                             <p>Is the demographic and location information for this section the same as a section you previously completed?
-                                <input type='radio'  name='patRegistryDemoInfo' id='patRegistryDemoInfoSame' value='patRegistryDemoInfoSame'  data-grouprequired='' />
-                                <label for="reg-same" class="inline"> Yes </label>
+                                <input type='radio'  name='patRegistryDemoInfo' id='patRegistryDemoInfoSame' value='patRegistryDemoInfoSame' required />
+                                <label for="patRegistryDemoInfoSame" class="inline"> Yes </label>
                                 <input type='radio' name='patRegistryDemoInfo' id='patRegistryDemoInfoDifferent' value='patRegistryDemoInfoDifferent'>
-                                <label for='reg-dif' class="inline"> No </label>
+                                <label for='patRegistryDemoInfoDifferent' class="inline"> No </label>
                             </p>
-                            <fieldset data-dependent-validation="reg-same" id="reg-hide">
+                            <fieldset data-dependent-validation="patRegistryDemoInfoSame" id="reg-hide">
                                 <h3 class="quest-header"><strong>Who composes the patient population you would like to follow?</strong></h3>
                                 <div class="row 33%">
                                     <div class="4u 8u(mobile)">
@@ -328,7 +319,7 @@
                                     <div class="4u 8u(mobile)">
                                     Gender:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderCisMan" data-grouprequired="" value="Cis-man" disabled />
+                                            <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderCisMan" value="Cis-man" disabled data-grouprequired="" />
                                                 <label for="patRegistryGenderCisMan" class="inline"> Cis-man </label></li>                                         
                                             <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderCisWoman" value="Cis-woman" disabled />
                                                 <label for="patRegistryGenderCisWoman" class="inline"> Cis-woman </label></li> 
@@ -336,7 +327,7 @@
                                                 <label for="patRegistryGenderTransMan" class="inline"> Trans-man </label></li> 
                                             <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderTransWoman" value="Trans-woman" disabled />
                                                 <label for="patRegistryGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                            <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderOther" value="Other" onclick="showMe('patRegistryGenderOtherValue', this)" onchange="document.getElementById('patRegistryGenderOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderOther" value="Other" onchange="document.getElementById('patRegistryGenderOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRegistryGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patRegistryGenderOtherValue' id="patRegistryGenderOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderAll" value="All" disabled />
                                                 <label for="patRegistryGenderAll" class="inline"> All </label></li> 
@@ -347,7 +338,7 @@
                                     <div class="4u 8u(mobile)">
                                     Race:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRegistryRace" id="patRegistryRaceAsian" data-grouprequired="" value="Asian" disabled>
+                                            <li><input type="checkbox"  name="patRegistryRace" id="patRegistryRaceAsian" value="Asian" disabled data-grouprequired="" >
                                                 <label for="patRegistryRaceAsian" class="inline"> Asian </label></li>
                                             <li><input type="checkbox"  name="patRegistryRace" id="patRegistryRaceNativeAmerican" value="American Indian or Alaska Native" disabled>
                                                 <label for="patRegistryRaceNativeAmerican" class="inline"> American Indian or Alaska Native </label></li>
@@ -357,7 +348,7 @@
                                                 <label for="patRegistryRaceBlack" class="inline"> Black or African American </label></li>
                                             <li><input type="checkbox"  name="patRegistryRace" id="patRegistryRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                                 <label for="patRegistryRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                            <li><input type="checkbox"  name="patRegistryRace" value="Other" id="patRegistryRaceOther" onclick="showMe('patRegistryRaceOtherValue', this)" onchange="document.getElementById('patRegistryRaceOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRegistryRace" value="Other" id="patRegistryRaceOther" onchange="document.getElementById('patRegistryRaceOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRegistryRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patRegistryRaceOtherValue' id="patRegistryRaceOtherValue" required disabled />
                                             <li><input type="checkbox"  name="patRegistryRace" id="patRegistryRaceAll" value="All" disabled>
                                                 <label for="patRegistryRaceAll" class="inline"> All </label></li>
@@ -366,11 +357,11 @@
                                     <div class="4u 8u(mobile)">
                                     Ethnicity:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityLatino" value="Hispanic or Latino" data-grouprequired="" disabled>
+                                            <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityLatino" value="Hispanic or Latino" disabled data-grouprequired="">
                                                 <label for="patRegistryEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                             <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityNonLatino" value="Not Hispanic or Latino" disabled>
                                                 <label for="patRegistryEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                            <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityOther" value="Other" onclick="showMe('patRegistryEthnicityOtherValue', this)" onchange="document.getElementById('patRegistryEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityOther" value="Other" onchange="document.getElementById('patRegistryEthnicityOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRegistryEthnicityOther" class="inline"> Other:  Please specify </label><input type="text" name='patRegistryEthnicityOtherValue' id="patRegistryEthnicityOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityAll" value="All" disabled>
                                                 <label for="patRegistryEthnicityAll" class="inline"> All </label></li>
@@ -395,13 +386,13 @@
                                     <div class="4u 8u(mobile)">
                                     Location: Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRegistryLocation" id="patRegistryLocationJHH" value="JHH" data-grouprequired="" disabled /> 
+                                            <li><input type="checkbox"  name="patRegistryLocation" id="patRegistryLocationJHH" value="JHH" disabled data-grouprequired="" /> 
                                                 <label for="patRegistryLocationJHH" class="inline"> JHH </label></li>                                        
                                             <li><input type="checkbox"  name="patRegistryLocation" id="patRegistryLocationJHBMC" value="JHBMC" disabled />
                                                 <label for="patRegistryLocationJHBMC" class="inline"> JHBMC </label></li>
-                                            <li><input type="checkbox"  name="patRegistryLocation" id="patRegistryLocationAll" value="Both" disabled />
-                                                <label for="patRegistryLocationAll" class="inline"> Both </label></li>
-                                            <li><input type="checkbox"  name="patRegistryLocation" id="patRegistryLocationOther" value="Other" onclick="showMe('patRegistryLocationOtherValue', this)" onchange="document.getElementById('patRegistryLocationOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRegistryLocation" id="patRegistryLocationAll" value="All" disabled />
+                                                <label for="patRegistryLocationAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="patRegistryLocation" id="patRegistryLocationOther" value="Other" onchange="document.getElementById('patRegistryLocationOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRegistryLocationOther" class="inline"> Other: Please specify </label><input type="text"  name='patRegistryLocationOtherValue' id="patRegistryLocationOtherValue" required disabled /></li>
                                         </ul>	
                                     </div>
@@ -422,7 +413,7 @@
                                                 <label for="patRegistryLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                             <li><input type="checkbox"  name="patRegistryLevelOfCare" id="patRegistryLevelOfCareInpatient" value="Inpatient" disabled />
                                                 <label for="patRegistryLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                            <li><input type="checkbox"  name="patRegistryLevelOfCare" id="patRegistryLevelOfCareOther" value="Other" onclick="showMe('patRegistryLevelOfCareOtherValue', this)" onchange="document.getElementById('patRegistryLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRegistryLevelOfCare" id="patRegistryLevelOfCareOther" value="Other" onchange="document.getElementById('patRegistryLevelOfCareOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRegistryLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patRegistryLevelOfCareOtherValue' id="patRegistryLevelOfCareOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRegistryLevelOfCare" id="patRegistryLevelOfCareAll" value="All" disabled /> 
                                                 <label for="patRegistryLevelOfCareAll" class="inline"> All </label>
@@ -442,7 +433,7 @@
                             <div class="row 50%">
                                 <div class="6u 12u(mobile)">
                                     <label for="patRegistryMetricDiagnoses">Diagnoses:</label>
-                                    <input class="grouprequired" name="patRegistryMetric" id="patRegistryMetricDiagnoses" type="text" data-grouprequired="" disabled />
+                                    <input class="grouprequired" name="patRegistryMetric" id="patRegistryMetricDiagnoses" type="text" disabled data-grouprequired="" />
                                 </div>
                                 <div class="6u 12u(mobile)">
                                     <label for="patRegistryMetricMeds">Medications:</label>
@@ -462,7 +453,7 @@
                             <div class="row 50%">
                                 <div class="6u 12u(mobile)">
                                     <label for="patRegistryMetricOther">Other:</label>
-                                    <input class="grouprequired" name="patRegistryMetric" id="patRegistryOtherMetric" type="text" disabled />
+                                    <input class="grouprequired" name="patRegistryMetric" id="patRegistryMetricOther" type="text" disabled />
 				</div>
                             </div>
                             <br />
@@ -472,12 +463,12 @@
                         <div class="hidden" id="edc">
                             <h3><strong>Electronic Data Capture:</strong></h3>
                             <p>Is the demographic and location information for this section the same as a section you completed earlier?
-                                <input type='radio'  name='eDataCaptureDemoInfo' id='eDataCaptureDemoInfoSame' value='eDataCaptureDemoInfoSame' data-grouprequired='' />
+                                <input type='radio'  name='eDataCaptureDemoInfo' id='eDataCaptureDemoInfoSame' value='eDataCaptureDemoInfoSame' required />
                                 <label for="eDataCaptureDemoInfoSame" class="inline"> Yes </label>
                                 <input type='radio' name='eDataCaptureDemoInfo' id='eDataCaptureDemoInfoDifferent' value='eDataCaptureDemoInfoDifferent'>
                                 <label for='eDataCaptureDemoInfoDifferent' class="inline"> No </label>
                             </p>
-                            <fieldset data-dependent-validation="eDataCaptureDemoInfo" id="edc-hide">
+                            <fieldset data-dependent-validation="eDataCaptureDemoInfoSame" id="edc-hide">
                                 <h3 class="quest-header"><strong>Who composes the patient population on which you would like to capture data?</strong></h3>
                                 <br />
                                 <div class="row 33%">
@@ -488,7 +479,7 @@
                                     <div class="4u 8u(mobile)">
                                     Sex:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="eDataCaptureSex" id="eDataCaptureSexMale"  value="Male" data-grouprequired="" disabled />
+                                            <li><input type="checkbox"  name="eDataCaptureSex" id="eDataCaptureSexMale"  value="Male" disabled data-grouprequired="" />
                                                 <label for="eDataCaptureSexMale" class="inline"> Male </label></li>  
                                             <li><input type="checkbox"  name="eDataCaptureSex" id="eDataCaptureSexFemale" value="Female" disabled />
                                                 <label for="eDataCaptureSexFemale" class="inline"> Female </label></li> 
@@ -501,7 +492,7 @@
                                     <div class="4u 8u(mobile)">
                                     Gender:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderCisMan" value="Cis-man" data-grouprequired="" disabled />
+                                            <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderCisMan" value="Cis-man" disabled data-grouprequired="" />
                                                 <label for="eDataCaptureGenderCisMan" class="inline"> Cis-man </label></li>                                         
                                             <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderCisWoman" value="Cis-woman" disabled />
                                                 <label for="eDataCaptureGenderCisWoman" class="inline"> Cis-woman </label></li> 
@@ -509,7 +500,7 @@
                                                 <label for="eDataCaptureGenderTransMan" class="inline"> Trans-man </label></li> 
                                             <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderTransWoman" value="Trans-woman" disabled />
                                                 <label for="eDataCaptureGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                            <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderOther" value="Other" onclick="showMe('eDataCaptureGenderOtherValue', this)" onchange="document.getElementById('eDataCaptureGenderOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderOther" value="Other" onchange="document.getElementById('eDataCaptureGenderOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="eDataCaptureGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='eDataCaptureGenderOtherValue' id="eDataCaptureGenderOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderAll" value="All" disabled />
                                                 <label for="eDataCaptureGenderAll" class="inline"> All </label></li> 
@@ -520,7 +511,7 @@
                                     <div class="4u 8u(mobile)">
                                     Race:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceAsian" value="Asian" data-grouprequired="" disabled>
+                                            <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceAsian" value="Asian" disabled data-grouprequired="">
                                                 <label for="eDataCaptureRaceAsian" class="inline"> Asian </label></li>
                                             <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceNativeAmerican" value="American Indian or Alaska Native" disabled>
                                                 <label for="eDataCaptureRaceNativeAmerican" class="inline"> American Indian or Alaska Native </label></li>
@@ -530,7 +521,7 @@
                                                 <label for="eDataCaptureRaceBlack" class="inline"> Black or African American </label></li>
                                             <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                                 <label for="eDataCaptureRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                            <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceOther" value="Other" onclick="showMe('eDataCaptureRaceOtherValue', this)" onchange="document.getElementById('eDataCaptureRaceOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceOther" value="Other" onchange="document.getElementById('eDataCaptureRaceOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="eDataCaptureRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='eDataCaptureRaceOtherValue' id="eDataCaptureRaceOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceAll" value="All" disabled>
                                                 <label for="eDataCaptureRaceAll" class="inline"> All </label></li>
@@ -539,11 +530,11 @@
                                     <div class="4u 8u(mobile)">
                                     Ethnicity:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityLatino" value="Hispanic or Latino" data-grouprequired="" disabled>
+                                            <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityLatino" value="Hispanic or Latino" disabled data-grouprequired="">
                                                 <label for="eDataCaptureEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                             <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityNonLatino" value="Not Hispanic or Latino" disabled>
                                                 <label for="eDataCaptureEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                            <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityOther" value="Other" onclick="showMe('eDataCaptureEthnicityOtherValue', this)" onchange="document.getElementById('eDataCaptureEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityOther" value="Other" onchange="document.getElementById('eDataCaptureEthnicityOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="eDataCaptureEthnicityOther" class="inline"> Other: Please specify</label><input type="text"  name='eDataCaptureEthnicityOtherValue' id="eDataCaptureEthnicityOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityAll" value="All" disabled>
                                                 <label for="eDataCaptureEthnicityAll" class="inline"> All </label></li>
@@ -568,13 +559,13 @@
                                     <div class="4u 8u(mobile)">
                                     Location: Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="eDataCaptureLocation" id="eDataCaptureLocationJHH"  value="JHH" data-grouprequired="" disabled /> 
+                                            <li><input type="checkbox"  name="eDataCaptureLocation" id="eDataCaptureLocationJHH"  value="JHH" disabled data-grouprequired="" /> 
                                                 <label for="eDataCaptureLocationJHH" class="inline"> JHH </label></li>                                        
                                             <li><input type="checkbox"  name="eDataCaptureLocation" id="eDataCaptureLocationJHBMC"  value="JHBMC" disabled />
                                                 <label for="eDataCaptureLocationJHBMC" class="inline"> JHBMC </label></li>
-                                            <li><input type="checkbox"  name="eDataCaptureLocation" id="eDataCaptureLocation-both"  value="Both" disabled />
-                                                <label for="eDataCaptureLocation-both" class="inline"> Both </label></li>
-                                            <li><input type="checkbox"  name="eDataCaptureLocation" id="eDataCaptureLocationOther"  value="Other" onclick="showMe('eDataCaptureLocationOtherValue', this)" onchange="document.getElementById('eDataCaptureLocationOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="eDataCaptureLocation" id="eDataCaptureLocationAll"  value="All" disabled />
+                                                <label for="eDataCaptureLocationAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="eDataCaptureLocation" id="eDataCaptureLocationOther"  value="Other" onchange="document.getElementById('eDataCaptureLocationOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="eDataCaptureLocationOther" class="inline"> Other: Please specify </label><input type="text"  name='eDataCaptureLocationOtherValue' id="eDataCaptureLocationOtherValue" required disabled /></li>
                                         </ul>	
                                     </div>
@@ -595,17 +586,17 @@
                                                 <label for="eDataCaptureLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                             <li><input type="checkbox"  name="eDataCaptureLevelOfCare" id="eDataCaptureLevelOfCareInpatient" value="Inpatient" disabled />
                                                 <label for="eDataCaptureLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                            <li><input type="checkbox"  name="eDataCaptureLevelOfCare" id="eDataCaptureLevelOfCareOther" value="Other" onclick="showMe('eDataCaptureLevelOfCareOtherValue', this)" onchange="document.getElementById('eDataCaptureLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="eDataCaptureLevelOfCare" id="eDataCaptureLevelOfCareOther" value="Other" onchange="document.getElementById('eDataCaptureLevelOfCareOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="eDataCaptureLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='eDataCaptureLevelOfCareOtherValue' id="eDataCaptureLevelOfCareOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="eDataCaptureLevelOfCare" id="eDataCaptureLevelOfCareAll" value="All" disabled /> 
-                                                <label for="eDataCaptureLevelOfCareOther" class="inline"> All </label>
+                                                <label for="eDataCaptureLevelOfCareAll" class="inline"> All </label>
                                         </ul>	
                                     </div>
                                 </div>					
                                 <div class="row 100%">
                                     <div class="12u">
-                                        <label for="edc-locinfo" class="inline">Please provide any additional information concerning location (ex: team, unit, other): </label>
-                                        <textarea  name="edc-locinfo" id="eDataCaptureLocationInfo" required disabled></textarea>
+                                        <label for="eDataCaptureLocationInfo" class="inline">Please provide any additional information concerning location (ex: team, unit, other): </label>
+                                        <textarea  name="eDataCaptureLocationInfo" id="eDataCaptureLocationInfo" required disabled></textarea>
                                     </div>
                                 </div>
                             </fieldset>
@@ -639,7 +630,7 @@
                                 <br />
                                     <table id="edc-how">
                                         <tbody>
-                                            <tr class="edc-row">
+                                            <tr class="edc-row" id="edchowrow">
                                                 <td>Entrant of data:
                                                     <label for="eDataCaptureEntrantOfData"></label>
                                                     <select class="eDataCaptureEntrantOfData" name='eDataCaptureEntrantOfData' id="eDataCaptureEntrantOfData" required disabled>
@@ -674,9 +665,9 @@
                                 <div class="6u 12u(mobile)">
                                 Would you like your data to be visualized in the EMR?
                                     <ul class="requestUOList inline">
-                                        <li class="inline"><input type="radio" name="eDataCaptureVisualize" id="eDataCaptureVisualize" value='visual-yes' onchange="document.getElementById('eDataCaptureHowToVisualize').disabled = !this.checked;" disabled />
+                                        <li class="inline"><input type="radio" name="eDataCaptureVisualize" id="eDataCaptureVisualize" value='eDataCaptureVisualize' onchange="document.getElementById('eDataCaptureHowToVisualize').disabled = !this.checked;" disabled required />
                                             <label for="eDataCaptureVisualize" class="inline"> Yes </label></li>
-                                        <li class="inline"><input type="radio" name="eDataCaptureVisualize" id="eDataCaptureDoNotVisualize" value='visual-no' disabled />
+                                        <li class="inline"><input type="radio" name="eDataCaptureVisualize" id="eDataCaptureDoNotVisualize" value='eDataCaptureDoNotVisualize' disabled />
                                             <label for="eDataCaptureDoNotVisualize" class="inline"> No </label></li>
                                     </ul>
                                     <div class="hidden" id="visual-text">
@@ -692,12 +683,12 @@
                         <br />
                             <h3><strong>Data Extraction:</strong></h3>
                             <p>Is the demographic and location information for this section the same as a section you completed earlier?
-                                <input type='radio'  name='dataExtractionDemoInfo' id='dataExtractionDemoInfoSame' value='dataExtractionDemoInfoSame' data-grouprequired='' />
-                                <label for="dataExtractionDemoInfo" class="inline"> Yes </label>
-                                <input type='radio' name='dataExtractionDemoInfo' id='dex-dif' value='dataExtractionDemoInfoDifferent'>
-                                <label for='dex-dif' class="inline"> No </label>
+                                <input type='radio'  name='dataExtractionDemoInfo' id='dataExtractionDemoInfoSame' value='dataExtractionDemoInfoSame' required />
+                                <label for="dataExtractionDemoInfoSame" class="inline"> Yes </label>
+                                <input type='radio' name='dataExtractionDemoInfo' id='dataExtractionDemoInfoDifferent' value='dataExtractionDemoInfoDifferent'>
+                                <label for='dataExtractionDemoInfoDifferent' class="inline"> No </label>
                             </p>
-                            <fieldset data-dependent-validation="dataExtractionDemoInfo" id="dex-hide">
+                            <fieldset data-dependent-validation="dataExtractionDemoInfoSame" id="dex-hide">
                                 <h3 class="quest-header"><strong>Who composes the patient population from which you would like to extract data?</strong></h3>
                                 <br />
                                 <div class="row 33%">
@@ -708,7 +699,7 @@
                                     <div class="4u 8u(mobile)">
                                     Sex:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="dataExtractionSex" id="dataExtractionSexMale" value="Male" data-grouprequired="" disabled />
+                                            <li><input type="checkbox"  name="dataExtractionSex" id="dataExtractionSexMale" value="Male" disabled data-grouprequired=""  />
                                                 <label for="dataExtractionSexMale" class="inline"> Male </label></li>  
                                             <li><input type="checkbox"  name="dataExtractionSex" id="dataExtractionSexFemale" value="Female" disabled />
                                                 <label for="dataExtractionSexFemale" class="inline"> Female </label></li> 
@@ -721,7 +712,7 @@
                                     <div class="4u 8u(mobile)">
                                     Gender:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="dataExtractionGender" id="dataExtractionGenderCisMan"  value="Cis-man" data-grouprequired="" disabled />
+                                            <li><input type="checkbox"  name="dataExtractionGender" id="dataExtractionGenderCisMan"  value="Cis-man" disabled data-grouprequired="" />
                                                 <label for="dataExtractionGenderCisMan" class="inline"> Cis-man </label></li>                                         
                                             <li><input type="checkbox"  name="dataExtractionGender" id="dataExtractionGenderCisWoman" value="Cis-woman" disabled />
                                                 <label for="dataExtractionGenderCisWoman" class="inline"> Cis-woman </label></li> 
@@ -729,7 +720,7 @@
                                                 <label for="dataExtractionGenderTransMan" class="inline"> Trans-man </label></li> 
                                             <li><input type="checkbox"  name="dataExtractionGender" id="dataExtractionGenderTransWoman" value="Trans-woman" disabled />
                                                 <label for="dataExtractionGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                            <li><input type="checkbox" name="dataExtractionGender" id="dataExtractionGenderOther" value="Other" onclick="showMe('dataExtractionGenderOtherValue', this)" onchange="document.getElementById('dataExtractionGenderOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox" name="dataExtractionGender" id="dataExtractionGenderOther" value="Other" onchange="document.getElementById('dataExtractionGenderOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="dataExtractionGenderOther" class="inline"> Other: Please specify </label><input type="text" name='dataExtractionGenderOtherValue' id="dataExtractionGenderOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="dataExtractionGender" id="dataExtractionGenderAll" value="All" disabled />
                                                 <label for="dataExtractionGenderAll" class="inline"> All </label></li> 
@@ -740,7 +731,7 @@
                                     <div class="4u 8u(mobile)">
                                     Race:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceAsian" data-grouprequired="" value="Asian" disabled>
+                                            <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceAsian" value="Asian" disabled data-grouprequired="" >
                                                 <label for="dataExtractionRaceAsian" class="inline"> Asian </label></li>
                                             <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceNativeAmerican" value="American Indian or Alaska Native" disabled>
                                                 <label for="dataExtractionRaceNativeAmerican" class="inline"> American Indian or Alaska Native </label></li>
@@ -750,7 +741,7 @@
                                                 <label for="dataExtractionRaceBlack" class="inline"> Black or African American </label></li>
                                             <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                                 <label for="dataExtractionRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                            <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceOther" value="Other" onclick="showMe('dataExtractionRaceOtherValue', this)" onchange="document.getElementById('dataExtractionRaceOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceOther" value="Other" onchange="document.getElementById('dataExtractionRaceOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="dataExtractionRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionRaceOtherValue' id="dataExtractionRaceOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceAll" value="All" disabled>
                                                 <label for="dataExtractionRaceAll" class="inline"> All </label></li>
@@ -759,11 +750,11 @@
                                     <div class="4u 8u(mobile)">
                                     Ethnicity:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityLatino" value="Hispanic or Latino" data-grouprequired="" disabled>
+                                            <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityLatino" value="Hispanic or Latino" disabled data-grouprequired="" >
                                                 <label for="dataExtractionEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                             <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityNonLatino" value="Not Hispanic or Latino" disabled>
                                                 <label for="dataExtractionEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                            <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityOther" value="Other" onclick="showMe('dataExtractionEthnicityOtherValue', this)" onchange="document.getElementById('dataExtractionEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityOther" value="Other" onchange="document.getElementById('dataExtractionEthnicityOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="dataExtractionEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionEthnicityOtherValue' id="dataExtractionEthnicityOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityAll" value="All" disabled>
                                                 <label for="dataExtractionEthnicityAll" class="inline"> All </label></li>
@@ -788,20 +779,20 @@
                                     <div class="4u 8u(mobile)">
                                     Location: Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="dataExtractionLocation" id="dataExtractionLocationJHH" value="JHH" data-grouprequired="" disabled /> 
+                                            <li><input type="checkbox"  name="dataExtractionLocation" id="dataExtractionLocationJHH" value="JHH" disabled data-grouprequired="" /> 
                                                 <label for="dataExtractionLocationJHH" class="inline"> JHH </label></li>                                        
                                             <li><input type="checkbox"  name="dataExtractionLocation" id="dataExtractionLocationJHBMC" value="JHBMC" disabled />
                                                 <label for="dataExtractionLocationJHBMC" class="inline"> JHBMC </label></li>
-                                            <li><input type="checkbox"  name="dataExtractionLocation" id="dataExtractionLocationAll" value="Both" disabled />
-                                                <label for="dataExtractionLocationAll" class="inline"> Both </label></li>
-                                            <li><input type="checkbox"  name="dataExtractionLocation" id="dataExtractionLocationOther" value="Other" onclick="showMe('dataExtractionLocationOtherValue', this)" onchange="document.getElementById('dataExtractionLocationOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="dataExtractionLocation" id="dataExtractionLocationAll" value="All" disabled />
+                                                <label for="dataExtractionLocationAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="dataExtractionLocation" id="dataExtractionLocationOther" value="Other" onchange="document.getElementById('dataExtractionLocationOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="dataExtractionLocationOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionLocationOtherValue' id="dataExtractionLocationOtherValue" required disabled /></li>
                                         </ul>	
                                     </div>
                                     <div class="4u 8u(mobile)">
                                     Level of Care: Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareOutpatient" data-grouprequired="" value="Outpatient" disabled />
+                                            <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareOutpatient" value="Outpatient" disabled data-grouprequired="" />
                                                 <label for="dataExtractionLevelOfCareOutpatient" class="inline"> Outpatient </label>
                                             <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCarePRP" value="Psychiatric Rehabilitation" disabled />
                                                 <label for="dataExtractionLevelOfCarePRP" class="inline"> Psychiatric Rehabilitation </label>
@@ -815,10 +806,10 @@
                                                 <label for="dataExtractionLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                             <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareInpatient" value="v" disabled />
                                                 <label for="dataExtractionLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                            <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareOther" value="Other" onclick="showMe('dataExtractionLevelOfCareOtherValue', this)" onchange="document.getElementById('dataExtractionLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareOther" value="Other" onchange="document.getElementById('dataExtractionLevelOfCareOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="dataExtractionLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionLevelOfCareOtherValue' id="dataExtractionLevelOfCareOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareAll" value="All" disabled /> 
-                                                <label for="dataExtractionLevelOfCareOther" class="inline"> All </label>
+                                                <label for="dataExtractionLevelOfCareAll" class="inline"> All </label>
                                         </ul>	
                                     </div>
                                 </div>					
@@ -875,12 +866,12 @@
                         <div class="hidden" id="recruit">   
                             <h3><strong>Patient Recruitment:</strong></h3>
                             <p>Is the demographic and location information for this section the same as a section you completed earlier?
-                                <input type='radio'  name='patRecruitmentDemoInfo' id='patRecruitmentDemoInfoSame' value='patRecruitmentDemoInfoSame' data-grouprequired='' />
+                                <input type='radio'  name='patRecruitmentDemoInfo' id='patRecruitmentDemoInfoSame' value='patRecruitmentDemoInfoSame' required />
                                 <label for="patRecruitmentDemoInfoSame" class="inline"> Yes </label>
                                 <input type='radio' name='patRecruitmentDemoInfo' id='patRecruitmentDemoInfoDifferent' value='patRecruitmentDemoInfoDifferent'>
                                 <label for='patRecruitmentDemoInfoDifferent' class="inline"> No </label>
                             </p>
-                            <fieldset data-dependent-validation="patRecruitmentDemoInfo" id="rec-hide">
+                            <fieldset data-dependent-validation="patRecruitmentDemoInfoSame" id="rec-hide">
                                 <h3 class="quest-header"><strong>Who composes patient population from which you would like to recruit?</strong></h3>
                                 <div class="row 33%">
                                     <div class="4u 8u(mobile)">
@@ -890,7 +881,7 @@
                                     <div class="3u 6u(mobile)">
                                     Sex:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRecruitmentSex" id="patRecruitmentSexMale" value="Male" data-grouprequired="" disabled />
+                                            <li><input type="checkbox"  name="patRecruitmentSex" id="patRecruitmentSexMale" value="Male" disabled data-grouprequired="" />
                                                 <label for="patRecruitmentSexMale" class="inline"> Male </label></li>  
                                             <li><input type="checkbox"  name="patRecruitmentSex" id="patRecruitmentSexFemale" value="Female" disabled />
                                                 <label for="patRecruitmentSexFemale" class="inline"> Female </label></li> 
@@ -903,7 +894,7 @@
                                     <div class="4u 8u(mobile)">
                                     Gender:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderCisMan" value="Cis-man" data-grouprequired="" disabled />
+                                            <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderCisMan" value="Cis-man" disabled data-grouprequired="" />
                                                 <label for="patRecruitmentGenderCisMan" class="inline"> Cis-man </label></li>                                         
                                             <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderCisWoman" value="Cis-woman" disabled />
                                                 <label for="patRecruitmentGenderCisWoman" class="inline"> Cis-woman </label></li> 
@@ -911,7 +902,7 @@
                                                 <label for="patRecruitmentGenderTransMan" class="inline"> Trans-man </label></li> 
                                             <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderTransWoman" value="Trans-woman" disabled />
                                                 <label for="patRecruitmentGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                            <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderOther" value="Other" onclick="showMe('patRecruitmentGenderOtherValue', this)" onchange="document.getElementById('patRecruitmentGenderOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderOther" value="Other" onchange="document.getElementById('patRecruitmentGenderOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRecruitmentGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patRecruitmentGenderOtherValue' id="patRecruitmentGenderOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderAll" value="All" disabled />
                                                 <label for="patRecruitmentGenderAll" class="inline"> All </label></li> 
@@ -922,7 +913,7 @@
                                     <div class="4u 8u(mobile)">
                                     Race:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceAsian" value="Asian" data-grouprequired="" disabled>
+                                            <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceAsian" value="Asian" disabled data-grouprequired="" >
                                                 <label for="patRecruitmentRaceAsian" class="inline"> Asian </label></li>
                                             <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceNativeAmerican" value="American Indian or Alaska Native" disabled>
                                                 <label for="patRecruitmentRaceNativeAmerican" class="inline"> American Indian or Alaska Native </label></li>
@@ -932,7 +923,7 @@
                                                 <label for="patRecruitmentRaceBlack" class="inline"> Black or African American </label></li>
                                             <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                                 <label for="patRecruitmentRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                            <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceOther" value="Other" onclick="showMe('patRecruitmentRaceOtherValue', this)" onchange="document.getElementById('patRecruitmentRaceOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceOther" value="Other" onchange="document.getElementById('patRecruitmentRaceOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRecruitmentRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentRaceOtherValue' id="patRecruitmentRaceOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceAll" value="All" disabled>
                                                 <label for="patRecruitmentRaceAll" class="inline"> All </label></li>
@@ -941,11 +932,11 @@
                                     <div class="4u 8u(mobile)">
                                     Ethnicity:  Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityLatino" data-grouprequired="" value="Hispanic or Latino" disabled>
+                                            <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityLatino" value="Hispanic or Latino" disabled data-grouprequired="" >
                                                 <label for="patRecruitmentEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                             <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityNonLatino" value="Not Hispanic or Latino" disabled>
                                                 <label for="patRecruitmentEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                            <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityOther" value="Other" onclick="showMe('patRecruitmentEthnicityOtherValue', this)" onchange="document.getElementById('patRecruitmentEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityOther" value="Other" onchange="document.getElementById('patRecruitmentEthnicityOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRecruitmentEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentEthnicityOtherValue' id="patRecruitmentEthnicityOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityAll" value="All" disabled>
                                                 <label for="patRecruitmentEthnicityAll" class="inline"> All </label></li>
@@ -970,20 +961,20 @@
                                     <div class="4u 8u(mobile)">
                                     Location: Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRecruitmentLocation" id="patRecruitmentLocationJHH" value="JHH" data-grouprequired="" disabled /> 
+                                            <li><input type="checkbox"  name="patRecruitmentLocation" id="patRecruitmentLocationJHH" value="JHH" disabled data-grouprequired="" /> 
                                                 <label for="patRecruitmentLocationJHH" class="inline"> JHH </label></li>                                        
                                             <li><input type="checkbox"  name="patRecruitmentLocation" id="patRecruitmentLocationJHBMC" value="JHBMC" disabled />
                                                 <label for="patRecruitmentLocationJHBMC" class="inline"> JHBMC </label></li>
-                                            <li><input type="checkbox"  name="patRecruitmentLocation" id="patRecruitmentLocationAll" value="Both" disabled />
-                                                <label for="patRecruitmentLocationAll" class="inline"> Both </label></li>
-                                            <li><input type="checkbox"  name="patRecruitmentLocation" id="patRecruitmentLocationOther" value="Other" onclick="showMe('patRecruitmentLocationOtherValue', this)" onchange="document.getElementById('patRecruitmentLocationOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRecruitmentLocation" id="patRecruitmentLocationAll" value="All" disabled />
+                                                <label for="patRecruitmentLocationAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="patRecruitmentLocation" id="patRecruitmentLocationOther" value="Other" onchange="document.getElementById('patRecruitmentLocationOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRecruitmentLocationOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentLocationOtherValue' id="patRecruitmentLocationOtherValue" required disabled /></li>
                                         </ul>	
                                     </div>
                                     <div class="4u 8u(mobile)">
                                     Level of Care: Check all that apply
                                         <ul class="requestUOList">
-                                            <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareOutpatient" value="Outpatient" data-grouprequired="" disabled />
+                                            <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareOutpatient" value="Outpatient" disabled data-grouprequired="" />
                                                 <label for="patRecruitmentLevelOfCareOutpatient" class="inline"> Outpatient </label>
                                             <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCarePRP" value="Psychiatric Rehabilitation" disabled />
                                                 <label for="patRecruitmentLevelOfCarePRP" class="inline"> Psychiatric Rehabilitation </label>
@@ -997,10 +988,10 @@
                                                 <label for="patRecruitmentLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                             <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareInpatient" value="Inpatient" disabled />
                                                 <label for="patRecruitmentLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                            <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareOther" value="Other" onclick="showMe('patRecruitmentLevelOfCareOtherValue', this)" onchange="document.getElementById('patRecruitmentLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                            <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareOther" value="Other" onchange="document.getElementById('patRecruitmentLevelOfCareOtherValue').disabled = !this.checked;" disabled />
                                                 <label for="patRecruitmentLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentLevelOfCareOtherValue' id="patRecruitmentLevelOfCareOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareAll" value="All" disabled /> 
-                                                <label for="patRecruitmentLevelOfCareOther" class="inline"> All </label>
+                                                <label for="patRecruitmentLevelOfCareAll" class="inline"> All </label>
                                         </ul>	
                                     </div>
                                 </div>					
@@ -1027,9 +1018,9 @@
                                 <div class="12u">
                                 How would you like patients to be recruited?
                                     <ul class="requestUOList">
-                                        <li><input type="checkbox"  name="patRecruitmentContactMethod" id="patRecruitmentContactPatient" value="Patient Notification Through MyChart" data-grouprequired="" disabled>
+                                        <li><input type="checkbox"  name="patRecruitmentContactMethod" id="patRecruitmentContactPatient" value="Patient Notification Through MyChart" disabled data-grouprequired="" >
                                             <label for="patRecruitmentContactPatient" class="inline"> Patient Notification Through MyChart </label></li>
-					<li><input type="checkbox"  name="patRecruitmentContactMethod" id="patRecruitmentContactStudyTeam" value="Study Team Member Notification When Appropriate Patient Checks In" onchange="document.getElementByID('patRecruitmentContactPI').disabled = !this.checked; document.getElementByID('patRecruitmentContactSubmitter').disabled = !this.checked;" disabled>
+					<li><input type="checkbox"  name="patRecruitmentContactMethod" id="patRecruitmentContactStudyTeam" value="Study Team Member Notification When Appropriate Patient Checks In" onchange="document.getElementById('patRecruitmentContactPI').disabled = !this.checked; document.getElementById('patRecruitmentContactSubmitter').disabled = !this.checked;" disabled>
                                             <label for="patRecruitmentContactStudyTeam" class="inline"> Study Team Member Notification When Appropriate Patient Checks In </label></li>
 					<li><input type="checkbox"  name="patRecruitmentContactMethod" id="patRecruitmentContactProvider" value="Provider Notification During Patient Encounter" disabled>
                                             <label for="patRecruitmentContactProvider" class="inline"> Provider Notification During Patient Encounter</label></li>
@@ -1037,6 +1028,7 @@
                                 </div>
                             </div>
                             <div class="hidden" id="contact">
+                                <div class="row 100%" id="contact">
                                 <div class="row 50%">
                                      <div class="4u 8u(mobile)">
                                         <table id="stm-con">
@@ -1047,11 +1039,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <!--FOLLOWING CAUSE NO FORM POSTING check Pratimaa....--> 
-                                                <!--tr>
+                                                <tr>
                                                     <td>PI</td>
                                                     <td>
-                                                        <input type="checkbox"  name='patRecruitmentContactPerson' id="patRecruitmentContactPI" value="patRecruitmentContactPI" data-grouprequired="" disabled />
+                                                        <input type="checkbox"  name='patRecruitmentContactPerson' id="patRecruitmentContactPI" value="patRecruitmentContactPI" disabled />
                                                         <label for="patRecruitmentContactPI"></label>
                                                     </td>
                                                 </tr>
@@ -1061,11 +1052,11 @@
                                                         <input type="checkbox"  name='patRecruitmentContactPerson' id="patRecruitmentContactSubmitter" value="patRecruitmentContactSubmitter" disabled />
                                                         <label for="patRecruitmentContactSubmitter"></label>
                                                     </td>
-                                                </tr-->
+                                                </tr>
                                                 <div id="contactTable">
                                                 <tr class="contact-row" id="contact-row">
                                                     <td>
-                                                        <input type="text"  name="patRecruitmentContactStudyTeamJHED" id="patRecruitmentContactStudyTeamJHED" placeholder="JHED ID" required disabled />
+                                                        <input type="text"  name="patRecruitmentContactStudyTeamJHED" id="patRecruitmentContactStudyTeamJHED" placeholder="JHED ID" disabled />
                                                         <label for="patRecruitmentContactStudyTeamJHED"></label>
                                                     </td>
                                                     <td>
@@ -1078,7 +1069,7 @@
                                         </table>
                                      </div>
                                 </div>
-                                
+                                </div>    
                                 <button type="button" id="add-contact" onclick="document.getElementById('patRecruitmentContactStudyTeamJHED').disabled=false; document.getElementById('patRecruitmentContactStudyTeamMember').disabled=false;">Add Study Team Member</button>
                                 <button type="button" id="delete-contact" onclick="document.getElementById('patRecruitmentContactStudyTeamJHED').disabled=true; document.getElementById('patRecruitmentContactStudyTeamMember').disabled=true;">Remove Study Team Member</button>
                             </div>    
@@ -1140,310 +1131,13 @@
                         </section>
                     </div>
                 </div>
-            
-            <!-- FOOTER -->
-            <div id="footer-wrapper">
-                <div id="footer" class="container">
-                    <header class="major">
-                        <h2>Have a question? Contact us!</h2>
-                        <p>For information and inquiries please use the contact form below. If you are a 
-                            researcher/provider who would like to use the MHi-CARE toolset see the 
-                            <em><a href="./provider.html">Provider Portal</a></em> for resources specific to your needs.</p>
-                    </header>
-                    <div class="row">
-                        <section class="6u 12u(narrower)">
-                            <form method="post" action="#">
-                                <div class="row 50%">
-                                    <div class="6u 12u(mobile)">
-                                        <input name="name" placeholder="Name" type="text" />
-                                    </div>
-                                    <div class="6u 12u(mobile)">
-                                        <input name="email" placeholder="Email" type="text" />
-                                    </div>
-                                </div>
-                                <div class="row 50%">
-                                    <div class="12u">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="row 50%">
-                                    <div class="12u">
-                                        <ul class="actions">
-                                            <li><input type="submit" value="Send Message" /></li>
-                                            <li><input type="reset" value="Clear form" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </form>
-                        </section>
-                        <section class="6u 12u(narrower)">
-                            <div class="row 0%">
-                                <ul class="divided icons 6u 12u(mobile)">
-                                    <li class="icon fa-facebook"><a href="https://www.facebook.com/Johns.Hopkins.Medicine/">Facebook</a></li>
-                                    <li class="icon fa-twitter"><a href="https://twitter.com/HopkinsMedicine">Twitter</a></li>
-                                </ul>
-                                <ul class="divided icons 6u 12u(mobile)">
-                                    <li class="icon fa-youtube"><a href="https://www.youtube.com/JohnsHopkinsMedicine">YouTube</a></li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-                <div id="copyright" class="container">
-                    <ul>
-                        <li><a href="http://www.hopkinsmedicine.org/psychiatry"><img src="./images/hopkins.png" /></a></li>
-                        <li>&copy; Untitled. All rights reserved.</li>
-                    </ul>
-                </div>
             </div>
+            <!-- FOOTER -->
+            <jsp:include page="/WEB-INF/templates/footer.jsp"/>
         </div>
 		
         <!-- Scripts -->
         <script src="./assets/js/js-webshim/minified/polyfiller.js"></script>
-	<script>
-            webshim.setOptions('forms', {
-                lazyCustomMessages: true,
-                addValidators: true  
-            }); 
-                    
-            webshim.setOptions('forms-ext', {
-                replaceUI: 'auto',
-                widgets: {
-                    startView: 2
-                }
-            });
-                    
-            webshim.polyfill('forms forms-ext');
-                    
-            $(function(){
-                $('[type="date"].submissionDate').prop('defaultValue', function(){
-                    return new Date().toJSON().split('T')[0];
-                });
-            });
-        
-            // Study Team Members Table - Add/Remove Rows
-            function addTableRow() {
-                var $tableRow = $('tr.model-row:first-child');
-                var $clonedRow = $tableRow.clone().show();
-                    $('#stmember').append($clonedRow);
-            }
-
-            function myDeleteFunction() {
-                var $memberTRs = $('tr', '#stmember');
-	  	// If rowcount === 1, hide first row, don't remove it!!
-                var rowCount = $memberTRs.length;
-                    if (rowCount === 1) {
-                        $('tr.model-row:first-child').hide();
-                            return;
-                        }
-                    $memberTRs.last().remove();
-            }
-
-            jQuery(function() {
-                $('#delete').click(function() {
-                    myDeleteFunction();
-                });
-
-                $('#add').click(function() {
-                    addTableRow();
-                });
-            });
-            
-        // Electronic Data Capture Entrant/Platform Table - Add/Remove Rows
-            function addEDCTableRow() {
-                var $tableRow = $('tr.edc-row:first-child');
-                var $clonedRow = $tableRow.clone().show();
-                    $('#edc-how').append($clonedRow);
-            }
-                
-            function myEDCDeleteFunction() {
-                var $memberTRs = $('tr', '#edc-how');
-                // If rowcount === 1, hide first row, don't remove it!!
-                var rowCount = $memberTRs.length;
-                    if (rowCount === 1) {
-                        $('tr.edc-row:first-child').hide();
-                            return;
-                        }
-                    $memberTRs.last().remove();
-            }
-                
-            jQuery(function() {
-                $('#delete-edc').click(function() {
-                    myEDCDeleteFunction();
-                });
-
-                $('#add-edc').click(function() {
-                    addEDCTableRow();
-                });
-            });
-         
-        // Contact Study Team Member Table - Add/Remove Rows
-            function addConTableRow() {
-                var $tableRow = $('tr.contact-row:nth-child(3)');
-                var $clonedRow = $tableRow.clone().show();
-                    $('#stm-con').append($clonedRow);
-            }
-                
-            function myConDeleteFunction() {
-                var $memberTRs = $('tr', '#stm-con');
-	  	// If rowcount === 1, hide first row, don't remove it!!
-                var rowCount = $memberTRs.length;
-                    if (rowCount === 4) {
-                        $('tr.contact-row:first-child').hide();
-                            return;
-                        }
-                    $memberTRs.last().remove();
-            }
-            
-            jQuery(function() {
-                $('#delete-contact').click(function() {
-                    myConDeleteFunction();
-                });
-
-                $('#add-contact').click(function() {
-                    addConTableRow();
-                });
-            });
-        
-        // Show Hidden Div 
-            function showMe (it, box) {
-                var vis = (box.checked) ? "block" : "none";
-                document.getElementById(it).style.display = vis;
-            }
-        
-        // Submitter Info - Fade In/Out 
-            $(document).ready(function() {
-                $('input[type=radio][name=submitterCheck]').change(function() {
-                    if (this.value == 'submitterDifferent') {
-                        $('#submitter').fadeIn('slow');
-                    }
-                    else if (this.value == 'submitterSame') {
-                        $('#submitter').fadeOut('slow');
-                    }
-                });
-            });
-            
-        // Patient Study Estimate - Fade In/Out 
-            $(document).ready(function(){
-                $('#patStudyEstimateCheck').change(function(){
-                    if(!this.checked)
-                $('#snapshot').fadeOut('slow');
-                    else
-                $('#snapshot').fadeIn('slow');
-                });
-            });
-       
-        // Patient Registry - Fade In/Out
-            $(document).ready(function(){
-                $('#patRegistryCheck').change(function(){
-                    if(!this.checked)
-                $('#registry').fadeOut('slow');
-                    else
-                $('#registry').fadeIn('slow');
-                });
-            });
-          
-        // Electronic Data Capture - Fade In/Out 
-            $(document).ready(function(){
-                $('#electronicDataCaptureCheck').change(function(){
-                    if(!this.checked)
-                $('#edc').fadeOut('slow');
-                    else
-                $('#edc').fadeIn('slow');
-
-                });
-            });
-           
-        // Data Extraction - Fade In/Out
-            $(document).ready(function(){
-                $('#dataExtractionCheck').change(function(){
-                    if(!this.checked)
-                $('#dex').fadeOut('slow');
-                    else
-                $('#dex').fadeIn('slow');
-                });
-            });
-       
-        // Patient Recruitment - Fade In/Out 
-            $(document).ready(function(){
-                $('#patRecruitmentCheck').change(function(){
-                    if(!this.checked)
-                $('#recruit').fadeOut('slow');
-                    else
-                $('#recruit').fadeIn('slow');
-                });
-            });
-      
-        // Patient Registry Demographic Info - Fade In/Out
-            $(document).ready(function() {
-                $('input[type=radio][name=patRegistryDemoInfo]').change(function() {
-                    if (this.value == 'patRegistryDemoInfoDifferent') {
-                        $('#reg-hide').fadeIn('slow');
-                    }
-                    else if (this.value == 'patRegistryDemoInfoSame') {
-                        $('#reg-hide').fadeOut('slow');
-                    }
-                });
-            });
-             
-        // Electronic Data Capture Demographic Info - Fade In/Out
-            $(document).ready(function() {
-                $('input[type=radio][name=eDataCaptureDemoInfo]').change(function() {
-                    if (this.value == 'eDataCaptureDemoInfoDifferent') {
-                        $('#edc-hide').fadeIn('slow');
-                    }
-                    else if (this.value == 'eDataCaptureDemoInfoSame') {
-                        $('#edc-hide').fadeOut('slow');
-                    }
-                });
-            });
-         
-        // Data Extraction Demographic Info - Fade In/Out
-            $(document).ready(function() {
-                $('input[type=radio][name=dataExtractionDemoInfo]').change(function() {
-                    if (this.value == 'dataExtractionDemoInfoDifferent') {
-                        $('#dex-hide').fadeIn('slow');
-                    }
-                    else if (this.value == 'dataExtractionDemoInfoSame') {
-                        $('#dex-hide').fadeOut('slow');
-                    }
-                });
-            });
-            
-        // Patient Recruitment Demographic Info - Fade In/Out 
-            $(document).ready(function() {
-                $('input[type=radio][name=patRecruitmentDemoInfo]').change(function() {
-                    if (this.value == 'patRecruitmentDemoInfoDifferent') {
-                        $('#rec-hide').fadeIn('slow');
-                    }
-                    else if (this.value == 'patRecruitmentDemoInfoSame') {
-                        $('#rec-hide').fadeOut('slow');
-                    }
-                });
-            });
-           
-        // Contact Member of Study Team - Fade In/Out - Who to Contact? 
-            $(document).ready(function(){
-                $('#patRecruitmentContactStudyTeam').change(function(){
-                    if(!this.checked)
-                $('#contact').fadeOut('slow');
-                    else
-                $('#contact').fadeIn('slow');
-                });
-            });
-          
-        // How Would You Like Your Data to be Visualized - Fade In/Out
-            $(document).ready(function() {
-                $('input[type=radio][name=eDataCaptureVisualize]').change(function() {
-                    if (this.value == 'visual-yes') {
-                        $('#visual-text').fadeIn('slow');
-                    }
-                    else if (this.value == 'visual-no') {
-                        $('#visual-text').fadeOut('slow');
-                    }
-                });
-            });
-        </script>
         <script src="./assets/js/jquery.dropotron.min.js"></script>
 	<script src="./assets/js/skel.min.js"></script>
 	<script src="./assets/js/util.js"></script>

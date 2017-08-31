@@ -1,5 +1,4 @@
 <!-- Header -->
-    <div id="header-wrapper">
         <div id="header" class="container">
 
             <!-- Logo -->
@@ -9,17 +8,15 @@
             <nav id="nav">
                 <ul>
                     <li><a href="patient.html">Patient</a></li>
-                    <li><a href="#">Provider</a>
+                    <li><a href="provider.html">Provider</a>
                         <ul>
-                            <li><a href="account">MHi-ACCOUNT</a>
-                            <li><a href="request">MHi-REQUEST</a></li>
-                            <li><a href="library">MHi-LIBRARY</a></li>
-                            <li><a href="faq">MHi-FAQ</a></li>											
+                            <li><a href="account">MHi-Account</a>
+                            <li><a href="request">MHi-Request</a></li>
+                            <li><a href="library">MHi-Library</a></li>											
                         </ul>
                     </li>
-                    <li class="break"><a href="resources">MHi-RESOURCES</a></li>
+                    <li class="break"><a href="resources">MHi-Resources</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
