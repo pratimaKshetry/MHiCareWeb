@@ -6,7 +6,7 @@
 	<h1>Message : </h1>
         <table>
 			
-        <tr>
+        <!--<tr>
             <td> ${inputData.piName} </td>            
         </tr>
         <tr>
@@ -53,7 +53,7 @@
                 </c:forEach>
         </table>
 
-	</c:if>
+	</c:if>-->
 
 </body>
 </html>

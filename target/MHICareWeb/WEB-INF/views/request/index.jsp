@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-	<title>MHi-REQUEST</title>
+	<title>MHi-Request</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="./assets/css/main.css" />
@@ -41,8 +41,8 @@
                                 <input  name="piLastName" id="piLastName" type="text" required />
                             </div>
                             <div class="4u 8u(mobile)">
-                                <label for="piJHED">JHED ID: </label>
-                                <input  name="piJHED" id="piJHED" type="text" required />
+                                <label for="piJhed">JHED ID: </label>
+                                <input  name="piJhed" id="piJhed" type="text" required />
                             </div>
                         </div>
                         <div class="row 33%">
@@ -61,7 +61,7 @@
                         </div>
                         <br />
                         Is the person making the submission different from the PI?
-                        <input type="radio"  name="submitterCheck" id="submitterDifferent" value='submitterDifferent' onchange="document.getElementById('submitterFirstName').disabled = !this.checked; document.getElementById('submitterLastName').disabled = !this.checked; document.getElementById('submitterJHED').disabled = !this.checked; document.getElementById('submitterEmail').disabled = !this.checked;" required />
+                        <input type="radio"  name="submitterCheck" id="submitterDifferent" value='submitterDifferent' onchange="document.getElementById('submitterFirstName').disabled = !this.checked; document.getElementById('submitterLastName').disabled = !this.checked; document.getElementById('submitterJhedID').disabled = !this.checked; document.getElementById('submitterEmail').disabled = !this.checked;" required />
                         <label for='submitterCheck' class="inline"> Yes </label>
                         <input type="radio" name="submitterCheck" id="submitterSame" value='submitterSame'> 
                         <label for='submitterDifferent' class="inline"> No </label>
@@ -79,8 +79,8 @@
                                     <input  name="submitterLastName" id="submitterLastName" type="text" required disabled />
                                 </div>
                                 <div class="3u 6u(mobile)">
-                                    <label for="submitterJHED">JHED ID: </label>
-                                    <input  name="submitterJHED" id="submitterJHED" type="text" required disabled />
+                                    <label for="submitterJhedID">JHED ID: </label>
+                                    <input  name="submitterJhedID" id="submitterJhedID" type="text" required disabled />
                                 </div>
                                 <div class="3u 6u(mobile)">
                                     <label for="submitterEmail">Email: </label>
@@ -184,11 +184,11 @@
                                         <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderTransMan" value="Trans-man" disabled />
                                             <label for="patStudyEstimateGenderTransMan" class="inline"> Trans-man </label></li> 
                                         <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderTransWoman" value="Trans-woman" disabled />
-                                            <label for="patStudyEstimateGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                        <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderOther" value="Other" onchange="document.getElementById('patStudyEstimateGenderOtherValue').disabled = !this.checked;" disabled />
-                                            <label for="patStudyEstimateGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patStudyEstimateGenderOtherValue' id="patStudyEstimateGenderOtherValue" class="puppies" required disabled /></li>
+                                            <label for="patStudyEstimateGenderTransWoman" class="inline"> Trans-woman </label></li>
                                         <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderAll" value="All" disabled />
                                             <label for="patStudyEstimateGenderAll" class="inline"> All </label></li> 
+                                        <li><input type="checkbox"  name="patStudyEstimateGender" id="patStudyEstimateGenderOther" value="Other" onchange="document.getElementById('patStudyEstimateGenderOtherValue').disabled = !this.checked;" disabled />
+                                            <label for="patStudyEstimateGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patStudyEstimateGenderOtherValue' id="patStudyEstimateGenderOtherValue" class="puppies" required disabled /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -206,10 +206,10 @@
                                             <label for="patStudyEstimateRaceBlack" class="inline"> Black or African American </label></li>
                                         <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                             <label for="patStudyEstimateRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                        <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceOther"  value="Other" onchange="document.getElementById('patStudyEstimateRaceOtherValue').disabled = !this.checked;" disabled />
-                                            <label for="patStudyEstimateRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateRaceOtherValue' id="patStudyEstimateRaceOtherValue" required disabled /></li>
                                         <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceAll" value="All" disabled>
                                             <label for="patStudyEstimateRaceAll" class="inline"> All </label></li>
+                                        <li><input type="checkbox"  name="patStudyEstimateRace" id="patStudyEstimateRaceOther"  value="Other" onchange="document.getElementById('patStudyEstimateRaceOtherValue').disabled = !this.checked;" disabled />
+                                            <label for="patStudyEstimateRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateRaceOtherValue' id="patStudyEstimateRaceOtherValue" required disabled /></li>
                                     </ul>
                                 </div>
                                 <div class="4u 8u(mobile)">
@@ -219,10 +219,10 @@
                                             <label for="patStudyEstimateEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                         <li><input type="checkbox"  name="patStudyEstimateEthnicity" id="patStudyEstimateEthnicityNonLatino"  value="Not Hispanic or Latino" disabled>
                                             <label for="patStudyEstimateEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                        <li><input type="checkbox"  name="patStudyEstimateEthnicity" id="patStudyEstimateEthnicityOther" value="Other" onclick="showMe('patStudyEstimateEthnicityOtherValue', this)" onchange="document.getElementById('patStudyEstimateEthnicityOtherValue').disabled = !this.checked;" disabled />
-                                            <label for="patStudyEstimateEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateEthnicityOtherValue' id="patStudyEstimateEthnicityOtherValue" required disabled /></li>
                                         <li><input type="checkbox"  name="patStudyEstimateEthnicity" id="patStudyEstimateEthnicityAll" value=" All" disabled>
                                             <label for="patStudyEstimateEthnicityAll" class="inline"> All </label></li>
+                                        <li><input type="checkbox"  name="patStudyEstimateEthnicity" id="patStudyEstimateEthnicityOther" value="Other" onclick="showMe('patStudyEstimateEthnicityOtherValue', this)" onchange="document.getElementById('patStudyEstimateEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                            <label for="patStudyEstimateEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateEthnicityOtherValue' id="patStudyEstimateEthnicityOtherValue" required disabled /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -271,10 +271,10 @@
                                             <label for="patStudyEstimateLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                         <li><input type="checkbox"  name="patStudyEstimateLevelOfCare" id="patStudyEstimateLevelOfCareInpatient" value="Inpatient" disabled />
                                             <label for="patStudyEstimateLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                        <li><input type="checkbox"  name="patStudyEstimateLevelOfCare" id="patStudyEstimateLevelOfCareOther" value="Other" onchange="document.getElementById('patStudyEstimateLevelOfCareOtherValue').disabled = !this.checked;" disabled />
-                                            <label for="patStudyEstimateLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateLevelOfCareOtherValue' id="patStudyEstimateLevelOfCareOtherValue" required disabled /></li>
                                         <li><input type="checkbox"  name="patStudyEstimateLevelOfCare" id="patStudyEstimateLevelOfCareAll" value="All" disabled /> 
                                             <label for="patStudyEstimateLevelOfCareAll" class="inline"> All </label>
+                                        <li><input type="checkbox"  name="patStudyEstimateLevelOfCare" id="patStudyEstimateLevelOfCareOther" value="Other" onchange="document.getElementById('patStudyEstimateLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                            <label for="patStudyEstimateLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patStudyEstimateLevelOfCareOtherValue' id="patStudyEstimateLevelOfCareOtherValue" required disabled /></li>
                                     </ul>	
 				</div>
                             </div>					
@@ -326,11 +326,11 @@
                                             <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderTransMan" value="Trans-man" disabled />
                                                 <label for="patRegistryGenderTransMan" class="inline"> Trans-man </label></li> 
                                             <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderTransWoman" value="Trans-woman" disabled />
-                                                <label for="patRegistryGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                            <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderOther" value="Other" onchange="document.getElementById('patRegistryGenderOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="patRegistryGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patRegistryGenderOtherValue' id="patRegistryGenderOtherValue" required disabled /></li>
+                                                <label for="patRegistryGenderTransWoman" class="inline"> Trans-woman </label></li>
                                             <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderAll" value="All" disabled />
                                                 <label for="patRegistryGenderAll" class="inline"> All </label></li> 
+                                            <li><input type="checkbox"  name="patRegistryGender" id="patRegistryGenderOther" value="Other" onchange="document.getElementById('patRegistryGenderOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="patRegistryGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patRegistryGenderOtherValue' id="patRegistryGenderOtherValue" required disabled /></li>                                           
                                         </ul>
                                     </div>
                                 </div>
@@ -348,10 +348,10 @@
                                                 <label for="patRegistryRaceBlack" class="inline"> Black or African American </label></li>
                                             <li><input type="checkbox"  name="patRegistryRace" id="patRegistryRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                                 <label for="patRegistryRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                            <li><input type="checkbox"  name="patRegistryRace" value="Other" id="patRegistryRaceOther" onchange="document.getElementById('patRegistryRaceOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="patRegistryRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patRegistryRaceOtherValue' id="patRegistryRaceOtherValue" required disabled />
                                             <li><input type="checkbox"  name="patRegistryRace" id="patRegistryRaceAll" value="All" disabled>
                                                 <label for="patRegistryRaceAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="patRegistryRace" value="Other" id="patRegistryRaceOther" onchange="document.getElementById('patRegistryRaceOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="patRegistryRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patRegistryRaceOtherValue' id="patRegistryRaceOtherValue" required disabled />                                           
                                         </ul>
                                     </div>
                                     <div class="4u 8u(mobile)">
@@ -361,10 +361,10 @@
                                                 <label for="patRegistryEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                             <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityNonLatino" value="Not Hispanic or Latino" disabled>
                                                 <label for="patRegistryEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                            <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityOther" value="Other" onchange="document.getElementById('patRegistryEthnicityOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="patRegistryEthnicityOther" class="inline"> Other:  Please specify </label><input type="text" name='patRegistryEthnicityOtherValue' id="patRegistryEthnicityOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityAll" value="All" disabled>
                                                 <label for="patRegistryEthnicityAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="patRegistryEthnicity" id="patRegistryEthnicityOther" value="Other" onchange="document.getElementById('patRegistryEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="patRegistryEthnicityOther" class="inline"> Other:  Please specify </label><input type="text" name='patRegistryEthnicityOtherValue' id="patRegistryEthnicityOtherValue" required disabled /></li>   
                                         </ul>
                                     </div>
                                 </div>
@@ -413,10 +413,10 @@
                                                 <label for="patRegistryLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                             <li><input type="checkbox"  name="patRegistryLevelOfCare" id="patRegistryLevelOfCareInpatient" value="Inpatient" disabled />
                                                 <label for="patRegistryLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                            <li><input type="checkbox"  name="patRegistryLevelOfCare" id="patRegistryLevelOfCareOther" value="Other" onchange="document.getElementById('patRegistryLevelOfCareOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="patRegistryLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patRegistryLevelOfCareOtherValue' id="patRegistryLevelOfCareOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRegistryLevelOfCare" id="patRegistryLevelOfCareAll" value="All" disabled /> 
                                                 <label for="patRegistryLevelOfCareAll" class="inline"> All </label>
+                                            <li><input type="checkbox"  name="patRegistryLevelOfCare" id="patRegistryLevelOfCareOther" value="Other" onchange="document.getElementById('patRegistryLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="patRegistryLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patRegistryLevelOfCareOtherValue' id="patRegistryLevelOfCareOtherValue" required disabled /></li>                                           
                                         </ul>	
                                     </div>
                                 </div>					
@@ -433,7 +433,7 @@
                             <div class="row 50%">
                                 <div class="6u 12u(mobile)">
                                     <label for="patRegistryMetricDiagnoses">Diagnoses:</label>
-                                    <input class="grouprequired" name="patRegistryMetric" id="patRegistryMetricDiagnoses" type="text" disabled data-grouprequired="" />
+                                    <input class="grouprequired" name="patRegistryMetric" id="patRegistryMetricDiagnoses" type="text" disabled />
                                 </div>
                                 <div class="6u 12u(mobile)">
                                     <label for="patRegistryMetricMeds">Medications:</label>
@@ -499,11 +499,11 @@
                                             <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderTransMan" value="Trans-man" disabled />
                                                 <label for="eDataCaptureGenderTransMan" class="inline"> Trans-man </label></li> 
                                             <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderTransWoman" value="Trans-woman" disabled />
-                                                <label for="eDataCaptureGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                            <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderOther" value="Other" onchange="document.getElementById('eDataCaptureGenderOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="eDataCaptureGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='eDataCaptureGenderOtherValue' id="eDataCaptureGenderOtherValue" required disabled /></li>
+                                                <label for="eDataCaptureGenderTransWoman" class="inline"> Trans-woman </label></li>
                                             <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderAll" value="All" disabled />
                                                 <label for="eDataCaptureGenderAll" class="inline"> All </label></li> 
+                                            <li><input type="checkbox"  name="eDataCaptureGender" id="eDataCaptureGenderOther" value="Other" onchange="document.getElementById('eDataCaptureGenderOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="eDataCaptureGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='eDataCaptureGenderOtherValue' id="eDataCaptureGenderOtherValue" required disabled /></li>                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -521,10 +521,10 @@
                                                 <label for="eDataCaptureRaceBlack" class="inline"> Black or African American </label></li>
                                             <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                                 <label for="eDataCaptureRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                            <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceOther" value="Other" onchange="document.getElementById('eDataCaptureRaceOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="eDataCaptureRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='eDataCaptureRaceOtherValue' id="eDataCaptureRaceOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceAll" value="All" disabled>
                                                 <label for="eDataCaptureRaceAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="eDataCaptureRace" id="eDataCaptureRaceOther" value="Other" onchange="document.getElementById('eDataCaptureRaceOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="eDataCaptureRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='eDataCaptureRaceOtherValue' id="eDataCaptureRaceOtherValue" required disabled /></li>                                            
                                         </ul>
                                     </div>
                                     <div class="4u 8u(mobile)">
@@ -534,10 +534,10 @@
                                                 <label for="eDataCaptureEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                             <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityNonLatino" value="Not Hispanic or Latino" disabled>
                                                 <label for="eDataCaptureEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                            <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityOther" value="Other" onchange="document.getElementById('eDataCaptureEthnicityOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="eDataCaptureEthnicityOther" class="inline"> Other: Please specify</label><input type="text"  name='eDataCaptureEthnicityOtherValue' id="eDataCaptureEthnicityOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityAll" value="All" disabled>
                                                 <label for="eDataCaptureEthnicityAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="eDataCaptureEthnicity" id="eDataCaptureEthnicityOther" value="Other" onchange="document.getElementById('eDataCaptureEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="eDataCaptureEthnicityOther" class="inline"> Other: Please specify</label><input type="text"  name='eDataCaptureEthnicityOtherValue' id="eDataCaptureEthnicityOtherValue" required disabled /></li>                                      
                                         </ul>
                                     </div>
                                 </div>
@@ -586,10 +586,10 @@
                                                 <label for="eDataCaptureLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                             <li><input type="checkbox"  name="eDataCaptureLevelOfCare" id="eDataCaptureLevelOfCareInpatient" value="Inpatient" disabled />
                                                 <label for="eDataCaptureLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                            <li><input type="checkbox"  name="eDataCaptureLevelOfCare" id="eDataCaptureLevelOfCareOther" value="Other" onchange="document.getElementById('eDataCaptureLevelOfCareOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="eDataCaptureLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='eDataCaptureLevelOfCareOtherValue' id="eDataCaptureLevelOfCareOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="eDataCaptureLevelOfCare" id="eDataCaptureLevelOfCareAll" value="All" disabled /> 
                                                 <label for="eDataCaptureLevelOfCareAll" class="inline"> All </label>
+                                            <li><input type="checkbox"  name="eDataCaptureLevelOfCare" id="eDataCaptureLevelOfCareOther" value="Other" onchange="document.getElementById('eDataCaptureLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="eDataCaptureLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='eDataCaptureLevelOfCareOtherValue' id="eDataCaptureLevelOfCareOtherValue" required disabled /></li>                                      
                                         </ul>	
                                     </div>
                                 </div>					
@@ -720,10 +720,10 @@
                                                 <label for="dataExtractionGenderTransMan" class="inline"> Trans-man </label></li> 
                                             <li><input type="checkbox"  name="dataExtractionGender" id="dataExtractionGenderTransWoman" value="Trans-woman" disabled />
                                                 <label for="dataExtractionGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                            <li><input type="checkbox" name="dataExtractionGender" id="dataExtractionGenderOther" value="Other" onchange="document.getElementById('dataExtractionGenderOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="dataExtractionGenderOther" class="inline"> Other: Please specify </label><input type="text" name='dataExtractionGenderOtherValue' id="dataExtractionGenderOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="dataExtractionGender" id="dataExtractionGenderAll" value="All" disabled />
-                                                <label for="dataExtractionGenderAll" class="inline"> All </label></li> 
+                                                <label for="dataExtractionGenderAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox" name="dataExtractionGender" id="dataExtractionGenderOther" value="Other" onchange="document.getElementById('dataExtractionGenderOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="dataExtractionGenderOther" class="inline"> Other: Please specify </label><input type="text" name='dataExtractionGenderOtherValue' id="dataExtractionGenderOtherValue" required disabled /></li>                         
                                         </ul>
                                     </div>
                                 </div>
@@ -741,10 +741,10 @@
                                                 <label for="dataExtractionRaceBlack" class="inline"> Black or African American </label></li>
                                             <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                                 <label for="dataExtractionRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                            <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceOther" value="Other" onchange="document.getElementById('dataExtractionRaceOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="dataExtractionRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionRaceOtherValue' id="dataExtractionRaceOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceAll" value="All" disabled>
                                                 <label for="dataExtractionRaceAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="dataExtractionRace" id="dataExtractionRaceOther" value="Other" onchange="document.getElementById('dataExtractionRaceOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="dataExtractionRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionRaceOtherValue' id="dataExtractionRaceOtherValue" required disabled /></li>                           
                                         </ul>
                                     </div>
                                     <div class="4u 8u(mobile)">
@@ -754,10 +754,10 @@
                                                 <label for="dataExtractionEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                             <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityNonLatino" value="Not Hispanic or Latino" disabled>
                                                 <label for="dataExtractionEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                            <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityOther" value="Other" onchange="document.getElementById('dataExtractionEthnicityOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="dataExtractionEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionEthnicityOtherValue' id="dataExtractionEthnicityOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityAll" value="All" disabled>
                                                 <label for="dataExtractionEthnicityAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="dataExtractionEthnicity" id="dataExtractionEthnicityOther" value="Other" onchange="document.getElementById('dataExtractionEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="dataExtractionEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionEthnicityOtherValue' id="dataExtractionEthnicityOtherValue" required disabled /></li>                                         
                                         </ul>
                                     </div>
                                 </div>
@@ -806,10 +806,10 @@
                                                 <label for="dataExtractionLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                             <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareInpatient" value="v" disabled />
                                                 <label for="dataExtractionLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                            <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareOther" value="Other" onchange="document.getElementById('dataExtractionLevelOfCareOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="dataExtractionLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionLevelOfCareOtherValue' id="dataExtractionLevelOfCareOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareAll" value="All" disabled /> 
                                                 <label for="dataExtractionLevelOfCareAll" class="inline"> All </label>
+                                            <li><input type="checkbox"  name="dataExtractionLevelOfCare" id="dataExtractionLevelOfCareOther" value="Other" onchange="document.getElementById('dataExtractionLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="dataExtractionLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='dataExtractionLevelOfCareOtherValue' id="dataExtractionLevelOfCareOtherValue" required disabled /></li>                                           
                                         </ul>	
                                     </div>
                                 </div>					
@@ -901,11 +901,11 @@
                                             <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderTransMan" value="Trans-man"disabled />
                                                 <label for="patRecruitmentGenderTransMan" class="inline"> Trans-man </label></li> 
                                             <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderTransWoman" value="Trans-woman" disabled />
-                                                <label for="patRecruitmentGenderTransWoman" class="inline"> Trans-woman </label></li> 
-                                            <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderOther" value="Other" onchange="document.getElementById('patRecruitmentGenderOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="patRecruitmentGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patRecruitmentGenderOtherValue' id="patRecruitmentGenderOtherValue" required disabled /></li>
+                                                <label for="patRecruitmentGenderTransWoman" class="inline"> Trans-woman </label></li>
                                             <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderAll" value="All" disabled />
-                                                <label for="patRecruitmentGenderAll" class="inline"> All </label></li> 
+                                                <label for="patRecruitmentGenderAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="patRecruitmentGender" id="patRecruitmentGenderOther" value="Other" onchange="document.getElementById('patRecruitmentGenderOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="patRecruitmentGenderOther" class="inline"> Other: Please specify </label> <input type="text"  name='patRecruitmentGenderOtherValue' id="patRecruitmentGenderOtherValue" required disabled /></li>                                       
                                         </ul>
                                     </div>
                                 </div>
@@ -923,10 +923,10 @@
                                                 <label for="patRecruitmentRaceBlack" class="inline"> Black or African American </label></li>
                                             <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceHawaiiPacificIslander" value="Native Hawaiian or Other Pacific Islander" disabled>
                                                 <label for="patRecruitmentRaceHawaiiPacificIslander" class="inline"> Native Hawaiian or Other Pacific Islander </label></li>
-                                            <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceOther" value="Other" onchange="document.getElementById('patRecruitmentRaceOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="patRecruitmentRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentRaceOtherValue' id="patRecruitmentRaceOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceAll" value="All" disabled>
                                                 <label for="patRecruitmentRaceAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="patRecruitmentRace" id="patRecruitmentRaceOther" value="Other" onchange="document.getElementById('patRecruitmentRaceOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="patRecruitmentRaceOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentRaceOtherValue' id="patRecruitmentRaceOtherValue" required disabled /></li>                                           
                                         </ul>
                                     </div>
                                     <div class="4u 8u(mobile)">
@@ -936,10 +936,10 @@
                                                 <label for="patRecruitmentEthnicityLatino" class="inline"> Hispanic or Latino </label></li>
                                             <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityNonLatino" value="Not Hispanic or Latino" disabled>
                                                 <label for="patRecruitmentEthnicityNonLatino" class="inline"> Not Hispanic or Latino </label></li>
-                                            <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityOther" value="Other" onchange="document.getElementById('patRecruitmentEthnicityOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="patRecruitmentEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentEthnicityOtherValue' id="patRecruitmentEthnicityOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityAll" value="All" disabled>
                                                 <label for="patRecruitmentEthnicityAll" class="inline"> All </label></li>
+                                            <li><input type="checkbox"  name="patRecruitmentEthnicity" id="patRecruitmentEthnicityOther" value="Other" onchange="document.getElementById('patRecruitmentEthnicityOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="patRecruitmentEthnicityOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentEthnicityOtherValue' id="patRecruitmentEthnicityOtherValue" required disabled /></li>                               
                                         </ul>
                                     </div>
                                 </div>
@@ -988,10 +988,10 @@
                                                 <label for="patRecruitmentLevelOfCareDayHospital" class="inline"> Day Hospital (IOP/PHP) </label>
                                             <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareInpatient" value="Inpatient" disabled />
                                                 <label for="patRecruitmentLevelOfCareInpatient" class="inline"> Inpatient </label>
-                                            <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareOther" value="Other" onchange="document.getElementById('patRecruitmentLevelOfCareOtherValue').disabled = !this.checked;" disabled />
-                                                <label for="patRecruitmentLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentLevelOfCareOtherValue' id="patRecruitmentLevelOfCareOtherValue" required disabled /></li>
                                             <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareAll" value="All" disabled /> 
                                                 <label for="patRecruitmentLevelOfCareAll" class="inline"> All </label>
+                                            <li><input type="checkbox"  name="patRecruitmentLevelOfCare" id="patRecruitmentLevelOfCareOther" value="Other" onchange="document.getElementById('patRecruitmentLevelOfCareOtherValue').disabled = !this.checked;" disabled />
+                                                <label for="patRecruitmentLevelOfCareOther" class="inline"> Other: Please specify </label><input type="text"  name='patRecruitmentLevelOfCareOtherValue' id="patRecruitmentLevelOfCareOtherValue" required disabled /></li>                                          
                                         </ul>	
                                     </div>
                                 </div>					
@@ -1028,7 +1028,6 @@
                                 </div>
                             </div>
                             <div class="hidden" id="contact">
-                                <div class="row 100%" id="contact">
                                 <div class="row 50%">
                                      <div class="4u 8u(mobile)">
                                         <table id="stm-con">
@@ -1068,8 +1067,7 @@
                                             </tbody>
                                         </table>
                                      </div>
-                                </div>
-                                </div>    
+                                </div> 
                                 <button type="button" id="add-contact" onclick="document.getElementById('patRecruitmentContactStudyTeamJHED').disabled=false; document.getElementById('patRecruitmentContactStudyTeamMember').disabled=false;">Add Study Team Member</button>
                                 <button type="button" id="delete-contact" onclick="document.getElementById('patRecruitmentContactStudyTeamJHED').disabled=true; document.getElementById('patRecruitmentContactStudyTeamMember').disabled=true;">Remove Study Team Member</button>
                             </div>    

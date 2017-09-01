@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-	<title>MHi-FAQ</title>
+	<title>MHi-Library - 7 Up 7 Down Inventory</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/main.css" />

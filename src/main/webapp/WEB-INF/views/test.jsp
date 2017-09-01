@@ -6,12 +6,12 @@
 	<h1>Message : </h1>
         <table>
 			
-        <tr>
+        <!--<tr>
             <td> ${inputData.piName} </td>            
         </tr>
         <tr>
             <td> ${inputData.piJhed} </td>            
-        </tr>
+        </tr>-->
         <tr>
             <td> ${inputData} </td>            
         </tr>			
