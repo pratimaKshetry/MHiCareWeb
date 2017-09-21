@@ -8,7 +8,7 @@
             <nav id="nav">
                 <ul>
                     <li><a href="patient.html">Patient</a></li>
-                    <li><a href="provider.html">Provider</a>
+                    <li><a href="#">Provider</a>
                         <ul>
                             <li><a href="account">MHi-Account</a>
                             <li><a href="request">MHi-Request</a></li>
