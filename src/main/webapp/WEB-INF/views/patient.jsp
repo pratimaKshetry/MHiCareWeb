@@ -36,7 +36,7 @@
                                     </ul>
                                 </section>
                                 <section>
-                                    <a href="./resources/#" class="image featured"><img src="images/gradient.png" alt="" /></a>
+                                    <a href="#" class="image featured"><img src="images/gradient.png" alt="" /></a>
                                     <header>
                                         <h3>Patient Resources</h3>
                                     </header>
@@ -44,7 +44,7 @@
                                         sem sit amet dolor neque semper magna. Lorem ipsum dolor sit amet consectetur et dolore
                                         adipiscing elit. Curabitur vel sem sit.</p>
                                     <ul class="actions">
-                                        <li><a href="./resources/#" class="button">Click Here</a></li>
+                                        <li><a href="#" class="button">Click Here</a></li>
                                     </ul>
                                 </section>
                             </section>
@@ -111,7 +111,7 @@
 			</section>
 			<section class="4u 12u(narrower) feature">
                             <div class="image-wrapper">
-				<a href="./resources/#" class="image featured"><img src="images/gradient.png" alt="" /></a>
+				<a href="#" class="image featured"><img src="images/gradient.png" alt="" /></a>
                             </div>
                             <header>
 				<h3>Patient Resources</h3>
@@ -119,7 +119,7 @@
                             <p class="blueText">Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur
 				vel sem sit dolor neque semper magna lorem ipsum.</p>
                             <ul class="actions">
-				<li><a href="./resources/#" class="button">Click Here</a></li>
+				<li><a href="#" class="button">Click Here</a></li>
                             </ul>
 			</section>
                     </div>

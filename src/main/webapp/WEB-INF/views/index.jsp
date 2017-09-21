@@ -13,7 +13,7 @@
                 <!-- Header -->
             <div id="header-wrapper">
                 <jsp:include page="/WEB-INF/templates/header.jsp"/>
-            
+
 		<!-- Hero -->
 		<section id="hero" class="container">
                     <header>
@@ -33,7 +33,7 @@
             <div class="wrapper">
 		<div class="container">
                     <div class="row">
-			<section class="6u 12u(narrower) feature">
+			<section class="6u 12u(narrower) feature">                           
                             <header>
 				<h2>Patient Portal</h2>
                             </header>
