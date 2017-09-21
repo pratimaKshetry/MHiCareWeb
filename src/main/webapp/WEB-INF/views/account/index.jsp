@@ -59,12 +59,14 @@
 				<a href="#" class="image featured"><img src="./images/gradient2.png" alt="" /></a>
                                 <table id="mhiProjectTable">
                                     <thead>
+                                        <th>Project ID</th>
                                         <th>Submission Date</th>
                                         <th>Study Title</th>
                                         <th>Status</th>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>N/A</td>
                                             <td>N/A</td>
                                             <td>N/A</td>
                                             <td>N/A</td>
@@ -86,44 +88,47 @@
                             </article>
 			</div>
                     </div>
+                    
+                    
+                    <!--FEATURES ROW-->
                     <div class="row features">
 			<section class="4u 12u(narrower) feature">
                             <div class="image-wrapper first">
-				<a href="#" class="image featured"><img src="./images/gradient.png" alt="" /></a>
+				<a href="./request" class="image featured"><img src="./images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-				<h3>MHi-REQUEST</h3>
+				<h3>MHi-Request</h3>
                             </header>
                             <p class="blueText">Do you have a research proposal in mind? Follow the link to learn more
                                about submitting your request and moving forward.</p>
                             <ul class="actions">
-                                <li><a href="#" class="button">Click Here</a></li>
+                                <li><a href="./request" class="button">Click Here</a></li>
                             </ul>
 			</section>
 			<section class="4u 12u(narrower) feature">
                             <div class="image-wrapper">
-				<a href="#" class="image featured"><img src="./images/gradient.png" alt="" /></a>
+				<a href="./resources" class="image featured"><img src="./images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-				<h3>MHi-RESOURCES</h3>
+				<h3>MHi-Resources</h3>
                             </header>
                             <p class="blueText">Already submitted your research proposal? You can keep track your progress
                                by following the link. Progress will be updated on a regular basis.</font></p>
                             <ul class="actions">
-                                <li><a href="#" class="button">Click Here</a></li>
+                                <li><a href="./resources" class="button">Click Here</a></li>
                             </ul>
 			</section>
 			<section class="4u 12u(narrower) feature">
                             <div class="image-wrapper">
-				<a href="#" class="image featured"><img src="./images/gradient.png" alt="" /></a>
+				<a href="./library" class="image featured"><img src="./images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-				<h3>MHi-LIBRARY</h3>
+				<h3>MHi-Library</h3>
                             </header>
                             <p class="blueText">A growing library of measures spanning function and symptom domains. Widely
                                accepted and used in clinical practice and research.</p>
                             <ul class="actions">
-				<li><a href="#" class="button">Click Here</a></li>
+				<li><a href="./library" class="button">Click Here</a></li>
                             </ul>
 			</section>
                     </div>
