@@ -46,41 +46,41 @@
                     <div class="row features">
                         <section class="4u 12u(narrower) feature">
                             <div class="image-wrapper first">
-                                <a href="#" class="image featured"><img src="../images/gradient.png" alt="" /></a>
+                                <a href="./account" class="image featured"><img src="../images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-                                <h3>MHi-ACCOUNT</h3>
+                                <h3>MHi-Account</h3>
                             </header>
                             <p><font color="#0b5dba">Do you have a research proposal in mind? Follow the link to learn more
                                 about submitting your request and moving forward.</font></p>
                                 <ul class="actions">
-                                    <li><a href="../request" class="button">Click Here</a></li>
+                                    <li><a href="./account" class="button">Click Here</a></li>
                                 </ul>
                         </section>
                         <section class="4u 12u(narrower) feature">
                             <div class="image-wrapper">
-                                <a href="#" class="image featured"><img src="../images/gradient.png" alt="" /></a>
+                                <a href="./resources" class="image featured"><img src="../images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-                                <h3>MHi-RESOURCES</h3>
+                                <h3>MHi-Resources</h3>
                             </header>
                             <p><font color="#0b5dba">Already submitted your research proposal? You can keep track your progress
                                 by following the link. Progress will be updated on a regular basis.</font></p>
                             <ul class="actions">
-                                <li><a href="#" class="button">Click Here</a></li>
+                                <li><a href="./resources" class="button">Click Here</a></li>
                             </ul>
                         </section>
                         <section class="4u 12u(narrower) feature">
                             <div class="image-wrapper">
-                                <a href="../library" class="image featured"><img src="../images/gradient.png" alt="" /></a>
+                                <a href="./library" class="image featured"><img src="../images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-                                <h3>MHi-LIBRARY</h3>
+                                <h3>MHi-Library</h3>
                             </header>
                             <p><font color="#0b5dba">A growing library of measures spanning function and symptom domains. Widely
                                 accepted and used in clinical practice and research.</font></p>
                             <ul class="actions">
-                                <li><a href="../library" class="button">Click Here</a></li>
+                                <li><a href="./library" class="button">Click Here</a></li>
                             </ul>
                         </section>
                     </div>

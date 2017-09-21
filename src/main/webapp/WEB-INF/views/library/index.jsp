@@ -25,7 +25,7 @@
                     <!-- Content -->
                     <article id="content">
 			<header>
-                            <h2>Welcome to MHi-LIBRARY</h2>
+                            <h2>Welcome to MHi-Library</h2>
                             <p>A cutting edge initiative to develop a learning health system 
 				that integrates patient care and research in order to achieve better 
 				patient outcomes.</p>
@@ -127,7 +127,7 @@
                                     <td>Self</td>
   				</tr>
   				<tr>
-                                    <td><a href="#">Brief Multidimensional Students’ Life Satisfaction Scale</a></td>
+                                    <td><a href="#">Brief Multidimensional Students? Life Satisfaction Scale</a></td>
                                     <td>BMSLSS</td>
                                     <td>Quality of Life</td>
                                     <td>Child</td>
@@ -790,28 +790,28 @@
                     <div class="row features">
                         <section class="4u 12u(narrower) feature">
                             <div class="image-wrapper first">
-                                <a href="#" class="image featured"><img src="./images/gradient.png" alt="" /></a>
+                                <a href="./account" class="image featured"><img src="./images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-                                <h3>MHi-ACCOUNT</h3>
+                                <h3>MHi-Account</h3>
                             </header>
                             <p class="blueText">Do you have a research proposal in mind? Follow the link to learn more
                                 about submitting your request and moving forward.</p>
                                 <ul class="actions">
-                                    <li><a href="./request" class="button">Click Here</a></li>
+                                    <li><a href="./account" class="button">Click Here</a></li>
                                 </ul>
                         </section>
                         <section class="4u 12u(narrower) feature">
                             <div class="image-wrapper">
-                                <a href="#" class="image featured"><img src="./images/gradient.png" alt="" /></a>
+                                <a href="./resources" class="image featured"><img src="./images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-                                <h3>MHi-RESOURCES</h3>
+                                <h3>MHi-Resources</h3>
                             </header>
                             <p class="blueText">Already submitted your research proposal? You can keep track your progress
                                 by following the link. Progress will be updated on a regular basis.</p>
                             <ul class="actions">
-                                <li><a href="#" class="button">Click Here</a></li>
+                                <li><a href="./resources" class="button">Click Here</a></li>
                             </ul>
                         </section>
                         <section class="4u 12u(narrower) feature">
@@ -819,7 +819,7 @@
                                 <a href="./library" class="image featured"><img src="./images/gradient.png" alt="" /></a>
                             </div>
                             <header>
-                                <h3>MHi-LIBRARY</h3>
+                                <h3>MHi-Library</h3>
                             </header>
                             <p class="blueText">A growing library of measures spanning function and symptom domains. Widely
                                 accepted and used in clinical practice and research.</p>
