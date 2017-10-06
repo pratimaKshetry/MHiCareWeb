@@ -7,8 +7,8 @@
 	<link rel="stylesheet" href="./assets/css/main.css" />
         <style>
             .teamPhoto {
-                width:6em;
-                height:6em;
+                width:10em;
+                height:10em;
                 border-radius:50%;
             }
         </style>
@@ -71,7 +71,7 @@
                         <div class="row">
                             <section class="4u 12u feature">
                                 <ul>
-                                    <li><img src="./images/nibbler.jpeg" class="teamPhoto"></li>
+                                    <li><img src="./images/alexisPhoto.jpg" class="teamPhoto"></li>
                                     <li>Alexis Becerra</li>
                                 </ul>
                             </section>
@@ -83,7 +83,7 @@
                             </section>
                             <section class="4u 12u feature">
                                 <ul>
-                                    <li><img src="./images/nibbler.jpeg" class="teamPhoto"></li>
+                                    <li><img src="./images/karaPhoto.jpg" class="teamPhoto"></li>
                                     <li>Kara Glazer</li>
                                 </ul>
                             </section>

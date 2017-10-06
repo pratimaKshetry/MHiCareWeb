@@ -30,7 +30,7 @@
                                         integrates patient care and research in order to achieve better patient 
 					outcomes.</p>
 				</header>
-				<a href="#" class="image featured"><img src="images/hopkinsbuilding.png" alt="" /></a>
+				<a href="#" class="image featured"><img src="images/hopkinsbuilding.jpg" alt="" /></a>
 				<h3><strong>What is MHi-CARE?</strong></h3>
                                     <p>The Mental Health Integrated Care and Research Enterprise (MHi-CARE) initiative is a learning health system that 
                                         enhances the integration of clinical care and research to benefit patients, community, and the population at large.</p>  
